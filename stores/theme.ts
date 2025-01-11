@@ -1,14 +1,9 @@
 type Color =
-  | 'zinc'
-  | 'rose'
+  |'neutral'
   | 'blue'
   | 'green'
   | 'orange'
   | 'red'
-  | 'slate'
-  | 'stone'
-  | 'gray'
-  | 'neutral'
   | 'yellow'
   | 'violet'
 
@@ -20,7 +15,7 @@ interface ThemeState {
 export const useThemeStore = defineStore('theme', {
   state: (): ThemeState => {
     return {
-      color: 'zinc',
+      color: 'neutral',
     }
   },
 

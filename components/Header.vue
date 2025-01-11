@@ -1,16 +1,21 @@
 <template>
-  <!-- <Card is="header" class="border-t-0 border-x-0 p-3"> -->
-  <div class="container flex items-center">
-    <div class="flex gap-3 ml-auto">
-      <CustomizeSite />
-    </div>
-  </div>
-  <!-- </Card> -->
+    <header class="border-b border-opacity-15 px-4 py-2 sm:p-5">
+        <div class="w-full flex items-center justify-between">
+            <div>
+                <HeaderBrand></HeaderBrand>
+            </div>
+            <div class="flex items-center">
+                <div class="flex gap-3 ml-auto">
+                    <HeaderDarkSwitch></HeaderDarkSwitch>
+                    <HeaderCustomizeSite></HeaderCustomizeSite>
+                    <HeaderDocument></HeaderDocument>
+                    <HeaderIcon></HeaderIcon>
+                </div>
+            </div>
+        </div>
+    </header>
 </template>
 
-<script setup>
-// const siteConfig = useSiteConfig()
-
-</script>
+<script setup></script>
 
 <style></style>

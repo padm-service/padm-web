@@ -13,9 +13,6 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: ['~/assets/scss/tailwind.scss', { injectPosition: 'first' }],
   },
-  icon: {
-    size: '20px',
-  },
   shadcn: {
     /**
      * Prefix for all the imported component
