@@ -14,9 +14,11 @@
             >
             <DropdownMenuSeparator />
 
-            <DropdownMenuRadioGroup class="font-bold">
-                <DropdownMenuRadioItem>个人中心 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem class="text-red-500 hover:text-red-500"
+            <DropdownMenuRadioGroup class="font-bold justify-self-center">
+                <DropdownMenuRadioItem class="pr-8"
+                    >个人中心
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem class="text-red-600 pr-8"
                     >退出登录
                 </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>

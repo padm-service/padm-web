@@ -1,9 +1,4 @@
 <template>
-    <main class="container my-5">
-        <Button>Button</Button>
-    </main>
+    <div class="flex-1">你好</div>
 </template>
-
-<script lang="ts" setup></script>
-
-<style></style>
+<script setup lang="ts"></script>

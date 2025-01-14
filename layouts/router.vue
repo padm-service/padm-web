@@ -1,7 +1,7 @@
 <template>
-    <div class="h-full">
+    <div class="">
         <Header />
-        <slot />
+        <div class="flex"><Sidebars /> <slot /></div>
     </div>
 </template>
 <script lang="ts" setup></script>

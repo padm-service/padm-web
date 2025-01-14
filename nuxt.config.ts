@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
+  pages:true,
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
@@ -10,9 +11,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/icon',
   ],
+  
   tailwindcss: {
     cssPath: ['~/assets/scss/tailwind.scss', { injectPosition: 'first' }],
   },
+
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -24,9 +27,12 @@ export default defineNuxtConfig({
      */
     componentDir: './components/ui'
   },
+
   colorMode: {
-    storage: 'cookie',
+    // preference: 'light',
+    storage: 'localStorage',
     classSuffix: '',
   },
 
+  compatibilityDate: '2025-01-12',
 })

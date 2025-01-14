@@ -1,6 +1,8 @@
 <template>
     <Button variant="outline" size="icon" @click="toggleColorMode">
-        <Icon :name="themeList[colorMode.preference]" class="w-5 h-5" />
+        <ColorScheme placeholder="...">
+            <Icon :name="themeList[colorMode.value]" class="w-5 h-5" />
+        </ColorScheme>
     </Button>
 </template>
 
@@ -10,8 +12,7 @@ const themeList = {
     light: 'line-md:sun-rising-loop',
     dark: 'line-md:sunny-filled-loop-to-moon-filled-loop-transition'
 }
-const colorList = ['blue', 'green', 'orange', 'red', 'yellow', 'violet']
-const toggleColorMode = () => {
+function toggleColorMode() {
     colorMode.value = colorMode.value === 'light' ? 'dark' : 'light'
     colorMode.preference = colorMode.value
 }

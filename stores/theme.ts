@@ -18,12 +18,15 @@ export const useThemeStore = defineStore('theme', {
       color: 'neutral',
     }
   },
-
   persist: {
-    storage: persistedState.cookiesWithOptions({
-      sameSite: 'strict',
-    }),
+    storage: persistedState.localStorage, // 使用 localStorage
   },
+
+  // persist: {
+  //   storage: persistedState.cookiesWithOptions({
+  //     sameSite: false,
+  //   }),
+  // },
 
   actions: {
     setColor(color: ThemeState['color']) {
