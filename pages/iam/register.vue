@@ -3,13 +3,8 @@
         <Card class="min-w-80 sm:min-w-96">
             <CardHeader>
                 <CardTitle>注册</CardTitle>
-                <CardDescription class="flex"
-                    >已有账号？去
-                    <NuxtLink
-                        to="/iam/login"
-                        class="text-blue-500 hover:underline"
-                        >登录</NuxtLink
-                    >
+                <CardDescription class="flex">已有账号？去
+                    <NuxtLink to="/iam/login" class="text-blue-500 hover:underline">登录</NuxtLink>
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -31,15 +26,13 @@
                 </form>
             </CardContent>
             <CardFooter class="flex justify-end px-6 pb-6">
-                <Button class="bg-blue-500 text-white hover:bg-blue-700"
-                    >注册</Button
-                >
+                <Button class="bg-blue-500 text-white hover:bg-blue-700">注册</Button>
             </CardFooter>
         </Card>
     </div>
 </template>
 <script setup lang="ts">
 definePageMeta({
-    layout: 'default'
+    layout: 'entrance'
 })
 </script>

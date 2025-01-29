@@ -1,8 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000
+  },
   css: ['~/assets/css/main.css'],
-  pages:true,
+  pages: true,
   modules: [
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
@@ -11,7 +15,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/icon',
   ],
-  
+
   tailwindcss: {
     cssPath: ['~/assets/scss/tailwind.scss', { injectPosition: 'first' }],
   },

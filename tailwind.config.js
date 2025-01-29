@@ -5,7 +5,6 @@ module.exports = {
   darkMode: ["class"],
   safelist: ["dark"],
   prefix: "",
-  
   theme: {
     container: {
       center: true,
@@ -52,6 +51,11 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      hover: {
+        DEFAULT: {
+          backgroundColor: "bg-accent ", // 蓝色
         },
       },
       borderRadius: {

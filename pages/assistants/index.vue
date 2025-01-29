@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">你好</div>
+    <div class="flex">assistants</div>
 </template>
 
 <script lang="ts" setup>

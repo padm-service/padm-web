@@ -6,20 +6,14 @@
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-            <DropdownMenuLabel class="w-40 font-semibold text-lg"
-                >用户23454</DropdownMenuLabel
-            >
-            <DropdownMenuLabel class="font-normal text-gray-400"
-                >账号ID: 690658643</DropdownMenuLabel
-            >
+            <DropdownMenuLabel class="w-40 font-semibold text-lg">用户23454</DropdownMenuLabel>
+            <DropdownMenuLabel class="font-normal text-gray-400">账号ID: 690658643</DropdownMenuLabel>
             <DropdownMenuSeparator />
 
             <DropdownMenuRadioGroup class="font-bold justify-self-center">
-                <DropdownMenuRadioItem class="pr-8"
-                    >个人中心
+                <DropdownMenuRadioItem class="pr-8">个人中心
                 </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem class="text-red-600 pr-8"
-                    >退出登录
+                <DropdownMenuRadioItem><span class="text-red-600 pr-8 ">退出登录</span>
                 </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
         </DropdownMenuContent>
