@@ -4,7 +4,7 @@
             <span class="text-3xl md:text-5xl  flex">🌲</span>
             <div>
                 <h3>
-                    <NuxtLink to="/services/id" class="text-xl font-extrabold hover:text-blue-500"> 未命名模型
+                    <NuxtLink to="/services/id/setting" class="text-xl font-extrabold hover:text-blue-500"> 未命名模型
                     </NuxtLink>
                 </h3>
                 <p class="pt-2">冠层分支结构分析模型</p>
