@@ -9,7 +9,7 @@
             </div>
             <div class="flex justify-end">
                 <Button class="dark:bg-blue-600 bg-blue-500 text-white dark:hover:bg-blue-500  hover:bg-blue-600">
-                    + 新建
+                    <NuxtLink to="/assistants/assId/chats/new"> + 新建</NuxtLink>
                 </Button>
             </div>
             <ContainerChatsCard></ContainerChatsCard>

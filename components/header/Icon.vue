@@ -11,10 +11,14 @@
             <DropdownMenuSeparator />
 
             <DropdownMenuRadioGroup class="font-bold justify-self-center">
-                <DropdownMenuRadioItem class="pr-8">个人中心
-                </DropdownMenuRadioItem>
-                <DropdownMenuRadioItem><span class="text-red-600 pr-8 ">退出登录</span>
-                </DropdownMenuRadioItem>
+                <NuxtLink to="/setting">
+                    <DropdownMenuRadioItem class="pr-8 cursor-pointer">个人中心
+                    </DropdownMenuRadioItem>
+                </NuxtLink>
+                <NuxtLink to="/iam/login">
+                    <DropdownMenuRadioItem><span class="text-red-600 pr-8 cursor-pointer">退出登录</span>
+                    </DropdownMenuRadioItem>
+                </NuxtLink>
             </DropdownMenuRadioGroup>
         </DropdownMenuContent>
     </DropdownMenu>

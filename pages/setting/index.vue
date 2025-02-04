@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">keys</div>
+    <div class="flex">setting</div>
 </template>
 
 <script lang="ts" setup>

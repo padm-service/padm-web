@@ -7,6 +7,6 @@
 
 <script lang="ts" setup>
 definePageMeta({
-    layout: 'router'
+    layout: 'personal'
 })
 </script>

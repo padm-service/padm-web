@@ -11,7 +11,7 @@ export const menus: MenuItem[] = [
     {
         id: "assistants",
         name: "数字专家",
-        icon: "🙂",
+        icon: "🧑‍🔬",
         group: "console",
         roles: ["admin"],
     },
@@ -23,9 +23,39 @@ export const menus: MenuItem[] = [
         roles: ["admin"],
     },
     {
+        id: "knowledgeGraph",
+        name: "知识图谱",
+        icon: "📈",
+        group: "console",
+        roles: ["admin", "user"],
+    },
+];
+export const manage: MenuItem[] = [
+    {
+        id: "setting",
+        name: "账号设置",
+        icon: "🔧",
+        group: "personal",
+        roles: ["admin", "user"],
+    },
+    {
         id: "keys",
         name: "API Key",
         icon: "🗝️",
+        group: "personal",
+        roles: ["admin", "user"],
+    },
+    {
+        id: "bills",
+        name: "费用账单",
+        icon: "🧾",
+        group: "personal",
+        roles: ["admin", "user"],
+    },
+    {
+        id: "users",
+        name: "用户中心",
+        icon: "🙂",
         group: "personal",
         roles: ["admin"],
     },
@@ -33,14 +63,7 @@ export const menus: MenuItem[] = [
         id: "monitor",
         name: "控制中心",
         icon: "🕵️",
-        group: "console",
+        group: "personal",
         roles: ["admin"],
-    },
-    {
-        id: "knowledgeGraph",
-        name: "知识图谱",
-        icon: "📈",
-        group: "console",
-        roles: ["admin", "user"],
     },
 ];

@@ -8,18 +8,18 @@
                 </h3>
                 <p class="pt-2 text-sm">我是柑橘种植专家，有关修枝整型、施肥灌溉、病害防治的技术问题，您都可以问我。</p>
                 <div class="flex gap-2 flex-wrap pt-2 text-xl">
-                    <Button variant="outline">
-                        <NuxtLink to="/assistants/assId/setting" class="flex ">
+                    <NuxtLink to="/assistants/assId/setting">
+                        <Button variant="outline">
                             <Icon name="weui:setting-outlined" class="w-5 h-5"></Icon>
                             <span>设置</span>
-                        </NuxtLink>
-                    </Button>
-                    <Button variant="outline">
-                        <NuxtLink to="/assistants/assId/chats" class="flex ">
+                        </Button>
+                    </NuxtLink>
+                    <NuxtLink to="/assistants/assId/chats">
+                        <Button variant="outline">
                             <Icon name="quill:chat" class="w-5 h-5"></Icon>
                             <span>对话</span>
-                        </NuxtLink>
-                    </Button>
+                        </Button>
+                    </NuxtLink>
                 </div>
             </div>
         </div>
