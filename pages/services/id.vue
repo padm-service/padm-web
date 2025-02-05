@@ -2,12 +2,7 @@
     <div class="flex flex-col flex-1">
         <div class="border-b  border-opacity-10 ">
             <div class="container container-xl pb-2 ">
-                <div class="flex items-center">
-                    <ContainerBack></ContainerBack>
-                    <div class="mx-auto">
-                        <span class="text-xl font-bold ">🌲 冠层分支结构分析</span>
-                    </div>
-                </div>
+                <ContainerHeader title="🌲 冠层分支结构分析"></ContainerHeader>
                 <div class="flex flex-row gap-2">
                     <div v-for="link in links" :key="link.id">
                         <Toggle aria-label="Toggle bold" class="text-lg font-bold"

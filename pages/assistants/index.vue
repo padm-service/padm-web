@@ -2,12 +2,7 @@
     <div class="px-4 sm:px-8  flex flex-1 flex-col">
         <div class="container container-xl">
             <div>
-                <div class="flex items-center">
-                    <ContainerBack></ContainerBack>
-                    <header class="mx-auto ">
-                        <span class="font-bold pb-4"> 数字模型</span>
-                    </header>
-                </div>
+                <ContainerHeader title="数字专家"></ContainerHeader>
                 <div class="flex pt-4 gap-4">
                     <Button class="bg-blue-500 text-white hover:bg-blue-700 ">
                         + 新建

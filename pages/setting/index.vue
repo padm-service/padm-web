@@ -1,5 +1,7 @@
 <template>
-    <div class="flex">setting</div>
+    <div class="container container-xl">
+        <ContainerHeader title="账号设置"></ContainerHeader>
+    </div>
 </template>
 
 <script lang="ts" setup>

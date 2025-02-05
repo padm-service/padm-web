@@ -60,29 +60,33 @@
                         <TableHead class="w-5 flex items-center">
                             <Checkbox></Checkbox>
                         </TableHead>
-                        <TableHead>
+                        <TableHead class="text-sm sm:text-base">
                             文件名
                         </TableHead>
-                        <TableHead>文件状态</TableHead>
-                        <TableHead>有效状态</TableHead>
-                        <TableHead>
+                        <TableHead class="text-sm sm:text-base">文件状态</TableHead>
+                        <TableHead class="text-sm sm:text-base">有效状态</TableHead>
+                        <TableHead class="text-sm sm:text-base">
                             上传时间
                         </TableHead>
-                        <TableHead>
+                        <TableHead class="text-sm sm:text-base">
                             更新时间
                         </TableHead>
-                        <TableHead>
+                        <TableHead class="text-sm sm:text-base">
                             操作
                         </TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    <TableRow v-for="invoice in invoices" :key="invoice.invoice">
+                    <TableRow v-for="invoice in invoices" :key="invoice.invoice" class="items-center">
                         <TableCell class="w-5">
                             <Checkbox></Checkbox>
                         </TableCell>
-                        <TableCell class="font-bold">
-                            📚{{ invoice.invoice }}
+                        <TableCell>
+                            <ContainerKnowledgeIcon :invoice="invoices"></ContainerKnowledgeIcon>
+                            <!-- <div class="">
+                                <Icons :type="invoice.name.split('.').pop()" class="sm:w-7 sm:h-7 w-5 h-5"></Icons>{{
+                                    invoice.name }}
+                            </div> -->
                         </TableCell>
                         <TableCell>{{ invoice.paymentStatus }}</TableCell>
                         <TableCell>{{ invoice.paymentMethod }}</TableCell>
@@ -147,42 +151,49 @@ const fileType = ref("all");
 const batchManage = ref("");
 const invoices = [
     {
+        name: 'test.pdf',
         invoice: 'INV001',
         paymentStatus: 'Paid',
         totalAmount: '$250.00',
         paymentMethod: 'Credit Card',
     },
     {
+        name: 'test.pdf',
         invoice: 'INV002',
         paymentStatus: 'Pending',
         totalAmount: '$150.00',
         paymentMethod: 'PayPal',
     },
     {
+        name: 'test.pdf',
         invoice: 'INV003',
         paymentStatus: 'Unpaid',
         totalAmount: '$350.00',
         paymentMethod: 'Bank Transfer',
     },
     {
+        name: 'test.ppt',
         invoice: 'INV004',
         paymentStatus: 'Paid',
         totalAmount: '$450.00',
         paymentMethod: 'Credit Card',
     },
     {
+        name: 'test.excel',
         invoice: 'INV005',
         paymentStatus: 'Paid',
         totalAmount: '$550.00',
         paymentMethod: 'PayPal',
     },
     {
+        name: 'test.markdown',
         invoice: 'INV006',
         paymentStatus: 'Pending',
         totalAmount: '$200.00',
         paymentMethod: 'Bank Transfer',
     },
     {
+        name: 'test.txt',
         invoice: 'INV007',
         paymentStatus: 'Unpaid',
         totalAmount: '$300.00',

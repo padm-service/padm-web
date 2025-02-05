@@ -1,7 +1,7 @@
 <template>
     <div class="container container-xl grow overflow-hidden pt-0">
         <div class="flex flex-col justify-between grow overflow-hidden">
-            <Header></Header>
+            <ContainerHeader title="数字农艺专家 - 小橘"></ContainerHeader>
             <ContainerInputBox></ContainerInputBox>
         </div>
     </div>
@@ -10,7 +10,6 @@
     </div>
 </template>
 <script setup lang="ts">
-import Header from './header.vue'
 import History from './history.vue'
 definePageMeta({
     layout: 'router'

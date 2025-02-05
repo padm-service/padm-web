@@ -1,4 +1,5 @@
 <template>
+    <Toaster duration="3000" />
     <div>
         <NuxtLayout>
             <NuxtPage />

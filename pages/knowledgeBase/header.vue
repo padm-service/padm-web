@@ -2,11 +2,11 @@
     <div class="flex items-center">
         <ContainerBack></ContainerBack>
         <header class="mx-auto ">
-            <span class="font-bold pb-4"> 知识库</span>
+            <span class="font-bold pb-4  text-md sm:text-xl"> 知识库</span>
         </header>
         <Dialog>
             <DialogTrigger as-child>
-                <Button variant="outline" class="bg-blue-500 text-white hover:bg-blue-700 hover:text-white">
+                <Button variant="outline" class=" bg-blue-500 text-white hover:bg-blue-700 hover:text-white">
                     + 创建知识库
                 </Button>
             </DialogTrigger>

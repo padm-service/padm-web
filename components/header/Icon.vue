@@ -12,11 +12,15 @@
 
             <DropdownMenuRadioGroup class="font-bold justify-self-center">
                 <NuxtLink to="/setting">
-                    <DropdownMenuRadioItem class="pr-8 cursor-pointer">个人中心
+                    <DropdownMenuRadioItem class=" cursor-pointer justify-center">个人中心
+                    </DropdownMenuRadioItem>
+                </NuxtLink>
+                <NuxtLink to="/services">
+                    <DropdownMenuRadioItem class="cursor-pointer justify-center">控制台
                     </DropdownMenuRadioItem>
                 </NuxtLink>
                 <NuxtLink to="/iam/login">
-                    <DropdownMenuRadioItem><span class="text-red-600 pr-8 cursor-pointer">退出登录</span>
+                    <DropdownMenuRadioItem><span class="text-red-600  cursor-pointer justify-center">退出登录</span>
                     </DropdownMenuRadioItem>
                 </NuxtLink>
             </DropdownMenuRadioGroup>

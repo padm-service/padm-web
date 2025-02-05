@@ -1,12 +1,7 @@
 <template>
     <ScrollArea class="flex-1 flex">
         <div class="container container-lg">
-            <div class="flex items-center">
-                <ContainerBack></ContainerBack>
-                <header class="mx-auto ">
-                    <span class="font-bold pb-4">数字农艺专家 - 小蓝</span>
-                </header>
-            </div>
+            <ContainerHeader title="数字农艺专家 - 小蓝"></ContainerHeader>
             <Basic></Basic>
             <LLM></LLM>
             <Extention></Extention>
