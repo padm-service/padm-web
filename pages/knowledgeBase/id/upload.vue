@@ -10,7 +10,7 @@
                 dragActive ? 'bg-[#d0d0d0] dark:bg-[#404040] border-blue-600 dark:border-blue-700' : ''
             ]">
                 <Icon name="line-md:upload-twotone-loop" class="w-10 h-10 transition-transform"
-                    :class="dragActive ? 'scale-110 text-blue-600 dark:text-blue-400' : 'text-gray-600 dark:text-gray-400'" />
+                    :class="dragActive ? 'scale-110 text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'" />
             </div>
         </Label>
         <Input id="picture" type="file" class="hidden" @change="handleFileSelect" />

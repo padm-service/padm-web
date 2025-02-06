@@ -3,22 +3,20 @@
     <div class="flex flex-col ">
         <Label for="knowledge" class="font-bold text-md">知识库</Label>
         <Select :model-value=knowledge>
-            <SelectRoot class="mt-2 max-w-56">
-                <SelectTrigger id="framework">
-                    <SelectValue placeholder="请选择知识库" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                    <SelectItem value="password">
-                        默认（无）
-                    </SelectItem>
-                    <SelectItem value="OPT">
-                        柑橘知识库
-                    </SelectItem>
-                    <SelectItem value="APIKEY">
-                        草莓知识库
-                    </SelectItem>
-                </SelectContent>
-            </SelectRoot>
+            <SelectTrigger id="framework" class="mt-2 max-w-56">
+                <SelectValue placeholder="请选择知识库" />
+            </SelectTrigger>
+            <SelectContent position="popper">
+                <SelectItem value="password">
+                    默认（无）
+                </SelectItem>
+                <SelectItem value="OPT">
+                    柑橘知识库
+                </SelectItem>
+                <SelectItem value="APIKEY">
+                    草莓知识库
+                </SelectItem>
+            </SelectContent>
         </Select>
     </div>
     <div>

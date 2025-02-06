@@ -11,7 +11,7 @@
                 <NuxtLink to="/assistants/assId/chats/chatId"> <span class="font-bold hover:underline">未命名对话</span>
                 </NuxtLink>
             </div>
-            <span class="text-gray-400 pt-2">2025/1/16 12:23:40</span>
+            <span class="dark:text-gray-400 text-gray-500 pt-2">2025/1/16 12:23:40</span>
         </div>
     </div>
 </template>

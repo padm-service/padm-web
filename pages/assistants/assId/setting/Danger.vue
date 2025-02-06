@@ -5,14 +5,14 @@
             <div class="flex items-center justify-between px-3 py-2 border-b">
                 <div class="pt-2">
                     <h3 class="font-extrabold ">访问控制</h3>
-                    <p class="text-gray-400">设置谁能访问到该专家</p>
+                    <p class="dark:text-gray-400 text-gray-500">设置谁能访问到该专家</p>
                 </div>
                 <Button variant="destructive">设置</Button>
             </div>
             <div class="flex items-center justify-between px-3 py-2 ">
                 <div class="pt-2">
                     <h3 class="font-extrabold ">删除该专家</h3>
-                    <p class="text-gray-400">删除后不可恢复，请慎重！</p>
+                    <p class="dark:text-gray-400 text-gray-500">删除后不可恢复，请慎重！</p>
                 </div>
                 <Button variant="destructive">删除</Button>
             </div>

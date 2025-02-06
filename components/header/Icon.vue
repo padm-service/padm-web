@@ -7,7 +7,7 @@
         </DropdownMenuTrigger>
         <DropdownMenuContent>
             <DropdownMenuLabel class="w-40 font-semibold text-lg">用户23454</DropdownMenuLabel>
-            <DropdownMenuLabel class="font-normal text-gray-400">账号ID: 690658643</DropdownMenuLabel>
+            <DropdownMenuLabel class="font-normal dark:text-gray-400 text-gray-500">账号ID: 690658643</DropdownMenuLabel>
             <DropdownMenuSeparator />
 
             <DropdownMenuRadioGroup class="font-bold justify-self-center">

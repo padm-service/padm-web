@@ -13,21 +13,19 @@
                         <div class="flex flex-col space-y-1.5">
                             <Label for="loginway">登录方式</Label>
                             <Select :model-value=loginWay>
-                                <SelectRoot>
-                                    <SelectTrigger id="framework">
-                                        <SelectValue placeholder="请选择登录方式" />
-                                    </SelectTrigger>
-                                    <SelectContent position="popper">
-                                        <SelectItem value="password">
-                                            用户密码
-                                        </SelectItem>
-                                        <SelectItem value="OPT">
-                                            临时验证码
-                                        </SelectItem>
-                                        <SelectItem value="APIKEY">APIKEY
-                                        </SelectItem>
-                                    </SelectContent>
-                                </SelectRoot>
+                                <SelectTrigger id="framework">
+                                    <SelectValue placeholder="请选择登录方式" />
+                                </SelectTrigger>
+                                <SelectContent position="popper">
+                                    <SelectItem value="password">
+                                        用户密码
+                                    </SelectItem>
+                                    <SelectItem value="OPT">
+                                        临时验证码
+                                    </SelectItem>
+                                    <SelectItem value="APIKEY">APIKEY
+                                    </SelectItem>
+                                </SelectContent>
                             </Select>
                         </div>
                         <div class="flex flex-col space-y-1.5">
