@@ -1,5 +1,5 @@
 <template>
-    <div class="flex sm:flex-row border rounded-md flex-col p-8  gap-4">
+    <div class="flex sm:flex-row border rounded-md flex-col p-8  gap-4 dark:bg-[#313131] bg-[#e8e8e8]">
         <span class="text-5xl  flex items-center">🙂</span>
         <div class=" grid  xl:grid-cols-3 md:grid-cols-2 grid-cols-1 flex-1 gap-y-5">
             <div class="flex gap-2">

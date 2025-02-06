@@ -1,6 +1,6 @@
 <template>
     <Toaster :duration="2000" position="top-center" :expand="false" richColors
-        :theme="colorMode.preference === 'dark' ? 'dark' : 'light'" :visibleToasts="1" />
+        :theme="colorMode.value === 'dark' ? 'dark' : 'light'" :visibleToasts="1" />
     <div>
         <NuxtLayout>
             <NuxtPage />

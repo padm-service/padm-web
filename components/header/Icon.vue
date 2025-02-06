@@ -20,7 +20,7 @@
                     </DropdownMenuRadioItem>
                 </NuxtLink>
                 <NuxtLink to="/iam/login">
-                    <DropdownMenuRadioItem><span class="text-red-600  cursor-pointer justify-center">退出登录</span>
+                    <DropdownMenuRadioItem class="text-red-600  cursor-pointer justify-center">退出登录
                     </DropdownMenuRadioItem>
                 </NuxtLink>
             </DropdownMenuRadioGroup>

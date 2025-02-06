@@ -10,7 +10,7 @@
                     + 创建API Key
                 </Button>
             </DialogTrigger>
-            <DialogContent class="sm:w-full">
+            <DialogContent class="sm:w-full w-4/5 rounded-md">
                 <DialogHeader>
                     <DialogTitle>新建API Key</DialogTitle>
                     <DialogDescription>

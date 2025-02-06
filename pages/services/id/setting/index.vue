@@ -2,6 +2,13 @@
     <ScrollArea>
         <div class="container container-md">
             <div>
+                <h2 class="font-bold text-xl">模型ICON</h2>
+                <div class="flex mt-4 border rounded-md w-32">
+                    <Input disabled v-model="currentEmoji" readonly class=" text-2xl border-none !opacity-100 " />
+                    <Emoji @select-emoji="handleEmojiSelect" />
+                </div>
+            </div>
+            <div>
                 <h2 class="font-bold text-xl">模型概述</h2>
                 <p class="dark:text-gray-400 text-gray-500 block pt-2">
                     格式参考
@@ -42,5 +49,11 @@
     </ScrollArea>
 </template>
 <script setup lang="ts">
+const currentEmoji = ref('');
 
+// 处理子组件传递的 Emoji
+const handleEmojiSelect = (emoji: any) => {
+    // 只允许输入一个 Emoji
+    currentEmoji.value = emoji;
+};
 </script>

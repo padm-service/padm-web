@@ -4,4 +4,5 @@ export type MenuItem = {
     icon: string;
     group?: string;
     roles?: string[];
+    path: string;
 }

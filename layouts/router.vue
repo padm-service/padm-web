@@ -10,6 +10,7 @@
 </template>
 <script lang="ts" setup>
 import { menus } from '@/utils/menus'
+
 </script>
 
 <style></style>

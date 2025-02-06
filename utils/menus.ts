@@ -7,6 +7,7 @@ export const menus: MenuItem[] = [
         icon: "🫐",
         group: "console",
         roles: ["admin", "user"],
+        path: "/services",
     },
     {
         id: "assistants",
@@ -14,6 +15,7 @@ export const menus: MenuItem[] = [
         icon: "🧑‍🔬",
         group: "console",
         roles: ["admin"],
+        path: "/assistants",
     },
     {
         id: "knowledgeBase",
@@ -21,6 +23,7 @@ export const menus: MenuItem[] = [
         icon: "📖",
         group: "console",
         roles: ["admin"],
+        path: "/knowledgeBase",
     },
     {
         id: "knowledgeGraph",
@@ -28,6 +31,7 @@ export const menus: MenuItem[] = [
         icon: "📈",
         group: "console",
         roles: ["admin", "user"],
+        path: "/knowledgeGraph",
     },
 ];
 export const manage: MenuItem[] = [
@@ -37,6 +41,7 @@ export const manage: MenuItem[] = [
         icon: "🔧",
         group: "personal",
         roles: ["admin", "user"],
+        path: "/setting",
     },
     {
         id: "keys",
@@ -44,6 +49,7 @@ export const manage: MenuItem[] = [
         icon: "🗝️",
         group: "personal",
         roles: ["admin", "user"],
+        path: "/keys",
     },
     {
         id: "bills",
@@ -51,6 +57,7 @@ export const manage: MenuItem[] = [
         icon: "🧾",
         group: "personal",
         roles: ["admin", "user"],
+        path: "/bills/month",
     },
     {
         id: "users",
@@ -58,6 +65,7 @@ export const manage: MenuItem[] = [
         icon: "🙂",
         group: "personal",
         roles: ["admin"],
+        path: "/users",
     },
     {
         id: "monitor",
@@ -65,5 +73,6 @@ export const manage: MenuItem[] = [
         icon: "🕵️",
         group: "personal",
         roles: ["admin"],
+        path: "/monitor",
     },
 ];
