@@ -61,7 +61,7 @@ export const manage: MenuItem[] = [
     },
     {
         id: "users",
-        name: "用户中心",
+        name: "用户管理",
         icon: "🙂",
         group: "personal",
         roles: ["admin"],

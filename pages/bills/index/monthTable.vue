@@ -17,37 +17,34 @@
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <NuxtLink to="/knowledgeBase/id" v-for="invoice in invoices" :key="invoice.invoice" class="contents">
-                    <TableRow class="cursor-pointer ">
-                        <TableCell class="font-bold">
-                            📚{{ invoice.invoice }}
-                        </TableCell>
-                        <TableCell>{{ invoice.paymentStatus }}</TableCell>
-                        <TableCell>{{ invoice.paymentMethod }}</TableCell>
-                        <TableCell>
-                            {{ invoice.totalAmount }}
-                        </TableCell>
-                        <TableCell>
-                            <HoverCard>
-                                <HoverCardTrigger as-child>
-                                    <Button @click.stop.prevent size="icon" variant="ghost">
-                                        <Icon name="fa-solid:ellipsis-h" class="bg-blue-500"></Icon>
-                                    </Button>
-                                </HoverCardTrigger>
-                                <HoverCardContent class="border flex flex-col w-fit">
-                                    <Button variant="ghost">
-                                        <Icon name="line-md:edit-full-twotone" class="bg-blue-500"></Icon>编辑
-                                    </Button>
-                                    <Button variant="ghost">
-                                        <Icon name="fluent:delete-32-filled" class="bg-red-600 dark:bg-red-800"></Icon>
-                                        删除
-                                    </Button>
-                                </HoverCardContent>
-                            </HoverCard>
-                        </TableCell>
-                    </TableRow>
-                    <Separator class="w-0" />
-                </NuxtLink>
+                <TableRow class="cursor-pointer " v-for="invoice in invoices" :key="invoice.invoice">
+                    <TableCell class="font-bold">
+                        📚{{ invoice.invoice }}
+                    </TableCell>
+                    <TableCell>{{ invoice.paymentStatus }}</TableCell>
+                    <TableCell>{{ invoice.paymentMethod }}</TableCell>
+                    <TableCell>
+                        {{ invoice.totalAmount }}
+                    </TableCell>
+                    <TableCell>
+                        <HoverCard>
+                            <HoverCardTrigger as-child>
+                                <Button @click.stop.prevent size="icon" variant="ghost">
+                                    <Icon name="fa-solid:ellipsis-h" class="bg-blue-500"></Icon>
+                                </Button>
+                            </HoverCardTrigger>
+                            <HoverCardContent class="border flex flex-col w-fit">
+                                <Button variant="ghost">
+                                    <Icon name="line-md:edit-full-twotone" class="bg-blue-500"></Icon>编辑
+                                </Button>
+                                <Button variant="ghost">
+                                    <Icon name="fluent:delete-32-filled" class="bg-red-600 dark:bg-red-800"></Icon>
+                                    删除
+                                </Button>
+                            </HoverCardContent>
+                        </HoverCard>
+                    </TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     </div>

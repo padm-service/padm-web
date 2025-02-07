@@ -5,13 +5,19 @@
                 <ContainerHeader title="🌲 冠层分支结构分析"></ContainerHeader>
                 <div class="flex flex-row gap-2">
                     <div v-for="link in links" :key="link.id">
-                        <Toggle aria-label="Toggle bold" class="text-lg font-bold"
-                            :pressed="router.path.includes(link.id)">
-                            <NuxtLink :to="`/services/id/${link.id}`" class="w-full min-w-20"
-                                activeClass="border-b-2 border-blue-400">
-                                <span>{{ link.name }}</span>
+                        <div :class="[
+                            'p-2',
+                            'transition-all',
+                            'duration-100',
+                            { 'border-b-2 border-blue-400': router.path.includes(link.id) }
+                        ]">
+                            <NuxtLink :to="`/services/id/${link.id}`" class="contents">
+                                <Toggle aria-label="Toggle bold" class="text-lg font-bold"
+                                    :pressed="router.path.includes(link.id)">
+                                    <span>{{ link.name }}</span>
+                                </Toggle>
                             </NuxtLink>
-                        </Toggle>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -8,14 +8,14 @@
             </SheetTrigger>
             <SheetContent side="left" class="p-0 w-2/3">
                 <div class="pt-14 flex flex-col gap-y-2">
-                    <div v-for="item in menuLoading" :key="item.id" class="">
-                        <Button variant="ghost" class="text-lg w-full font-extrabold"
-                            :class="{ 'bg-[#E6F1FB] hover:bg-[#E6F1FB] dark:bg-[#1A2530] dark:text-blue-600 dark:hover:bg-[#1A2530] dark:hover:text-blue-600': isActive(item.path) }">
-                            <NuxtLink :to="item.path" class="w-full flex  justify-center">
+                    <div v-for="item in menuLoading" :key="item.id">
+                        <NuxtLink :to="item.path" class="contents">
+                            <Button variant="ghost" class="text-lg w-full font-extrabold justify-start pl-12"
+                                :class="{ 'bg-[#E6F1FB] hover:bg-[#E6F1FB] dark:bg-[#1A2530] dark:text-blue-600 dark:hover:bg-[#1A2530] dark:hover:text-blue-600': isActive(item.path) }">
                                 <span v-if="item.icon" class="mr-2">{{ item.icon }}</span>
                                 {{ item.name }}
-                            </NuxtLink>
-                        </Button>
+                            </Button>
+                        </NuxtLink>
                     </div>
                 </div>
             </SheetContent>

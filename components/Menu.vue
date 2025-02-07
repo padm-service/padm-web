@@ -2,13 +2,13 @@
     <nav class="hidden border-r  border-opacity-15 sm:flex sm:flex-col md:w-64">
         <ul class="space-y-2 py-8 ">
             <li v-for="item in menuItems" :key="item.path" class="px-4 ">
-                <Button variant="ghost" class="text-lg w-full font-extrabold"
-                    :class="{ 'bg-[#E6F1FB] hover:bg-[#E6F1FB] dark:bg-[#1A2530] dark:text-blue-600 dark:hover:bg-[#1A2530] dark:hover:text-blue-600': isActive(item.path) }">
-                    <NuxtLink :to="item.path" class="w-full flex  justify-start pl-8">
+                <NuxtLink :to="item.path" class="contents">
+                    <Button variant="ghost" class="text-lg w-full font-extrabold justify-start pl-12"
+                        :class="{ 'bg-[#E6F1FB] hover:bg-[#E6F1FB] dark:bg-[#1A2530] dark:text-blue-600 dark:hover:bg-[#1A2530] dark:hover:text-blue-600': isActive(item.path) }">
                         <span v-if="item.icon" class="mr-2">{{ item.icon }}</span>
                         {{ item.name }}
-                    </NuxtLink>
-                </Button>
+                    </Button>
+                </NuxtLink>
             </li>
         </ul>
     </nav>
