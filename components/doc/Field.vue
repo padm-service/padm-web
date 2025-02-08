@@ -6,7 +6,7 @@
                     id
                     <span class="ml-2 font-normal">string</span>
                 </div>
-                <Badge variant="outline" class="bg-green-500">
+                <Badge variant="outline" class="bg-[#00ffbf] bg-opacity-10">
                     Required
                 </Badge>
             </div>

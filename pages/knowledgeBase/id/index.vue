@@ -1,9 +1,10 @@
 <template>
-    <div class="container container-2xl">
-        <Header></Header>
-        <DataTable></DataTable>
-    </div>
-
+    <ScrollArea class="flex-1 ">
+        <div class="container container-2xl">
+            <Header></Header>
+            <DataTable></DataTable>
+        </div>
+    </ScrollArea>
 </template>
 
 <script lang="ts" setup>

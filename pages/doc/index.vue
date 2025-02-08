@@ -9,7 +9,7 @@
                     <DocResponse></DocResponse>
                 </div>
                 <div class="w-full lg:w-1/2 2xl:w-2/5 self-start sticky top-8">
-
+                    <DocCode></DocCode>
                 </div>
             </div>
         </div>
@@ -17,6 +17,6 @@
 </template>
 <script setup lang="ts">
 definePageMeta({
-    layout: 'entrance'
+    layout: 'router'
 })
 </script>

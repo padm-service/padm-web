@@ -40,9 +40,3 @@ const menuLoading = computed(() => {
 const isActive = (path) => route.path.startsWith(path);
 
 </script>
-
-<style scoped>
-/* button[data-state='on'] {
-  @apply border-2 border-primary;
-} */
-</style>

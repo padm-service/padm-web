@@ -1,5 +1,5 @@
 <template>
-    <Toaster :duration="2000" position="top-center" :expand="false" richColors
+    <Toaster class="pointer-events-auto" :duration="2000" position="top-center" :expand="false" richColors
         :theme="colorMode.value === 'dark' ? 'dark' : 'light'" :visibleToasts="1" />
     <div>
         <NuxtLayout>

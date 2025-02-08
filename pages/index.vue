@@ -1,4 +1,6 @@
 <template>
-    <div class="flex-1">你好</div>
+    <div class="flex-1">
+        <NuxtLink to="/services">nihao</NuxtLink>
+    </div>
 </template>
 <script setup lang="ts"></script>
