@@ -2,23 +2,15 @@
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
             <Button variant="outline" size="icon">
-                <Icon name="icon-park-outline:theme" class="w-5 h-5" />
+                <Icon name="unjs:theme-colors" class="w-5 h-5" />
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent class="w-5">
             <DropdownMenuLabel>主题颜色</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-                type="single"
-                class="flex-wrap"
-                :modelValue="color"
-                @update:modelValue="handleColorChange"
-            >
-                <DropdownMenuRadioItem
-                    v-for="colorName in colorList"
-                    :value="colorName"
-                    :key="colorName"
-                >
+            <DropdownMenuRadioGroup type="single" class="flex-wrap" :modelValue="color"
+                @update:modelValue="handleColorChange">
+                <DropdownMenuRadioItem v-for="colorName in colorList" :value="colorName" :key="colorName">
                     <div class="mr-2" :class="colorName">
                         <div class="w-3 h-3 bg-primary rounded-sm"></div>
                     </div>

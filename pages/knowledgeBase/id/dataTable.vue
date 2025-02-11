@@ -731,10 +731,10 @@ const formatDate = (timestamp: number) => {
 
 // 操作处理
 const handleAction = (item: Invoice, action: string) => {
-    console.log('处理操作:', action, item)
+    // console.log('处理操作:', action, item)
 }
 
 const handleBatch = (action: string) => {
-    console.log('批量操作:', action, selectedIds.value)
+    // console.log('批量操作:', action, selectedIds.value)
 }
 </script>

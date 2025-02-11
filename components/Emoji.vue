@@ -8,15 +8,17 @@
         <PopoverContent side="bottom" class="contents">
             <ClientOnly>
                 <EmojiPicker :display-recent="true" :key="colorMode.value" :native="true" @select="onSelectEmoji"
-                    :theme="colorMode.value === 'dark' ? 'dark' : 'light'" class="" />
+                    :theme="colorMode.value === 'dark' ? 'dark' : 'light'" />
             </ClientOnly>
         </PopoverContent>
     </Popover>
 </template>
 
 <script setup lang="ts">
-import EmojiPicker from 'vue3-emoji-picker'
 import 'vue3-emoji-picker/css'
+const EmojiPicker = defineAsyncComponent(() =>
+    import("vue3-emoji-picker").then((EmojiPicker) => EmojiPicker)
+);
 const colorMode = useColorMode()
 
 const onSelectEmoji = (emoji: any) => {

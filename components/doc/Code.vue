@@ -22,12 +22,12 @@
                     </Select>
                     <Button variant="ghost">
                         <Icon name="solar:copy-line-duotone"
-                            class="cursor-pointer w-5 h-5 transition-colors bg-green-600 " @click="copyToClipboard">
+                            class="cursor-pointer w-5 h-5 transition-colors bg-green-600 " @click=copy("adada")>
                         </Icon>
                     </Button>
                 </div>
             </header>
-            <div ref="idElement" class="p-2 text-[13px] font-[18px] overflow-x-auto sb-none rounded-b-md border">
+            <div class="p-2 text-[13px] font-[18px] overflow-x-auto sb-none rounded-b-md border">
                 const options = {
                 method: "GET",
                 headers: {
@@ -41,33 +41,4 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import { toast } from 'vue-sonner';
-const idElement = ref<HTMLElement>();
-async function copyToClipboard() {
-    if (idElement.value) {
-        try {
-            if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(idElement.value.innerText);
-                toast.success('代码已复制');
-            } else {
-                // 降级方案：使用 document.execCommand
-                const textarea = document.createElement('textarea');
-                textarea.value = idElement.value.innerText;
-                textarea.style.position = 'fixed';
-                textarea.style.top = '0';
-                textarea.style.left = '0';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.focus();
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                toast.success('代码已复制');
-            }
-        } catch (error) {
-            toast.error('❌ 复制失败，请手动复制');
-        }
-    }
-};
 </script>

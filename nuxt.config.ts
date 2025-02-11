@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  ssr: false,
   devServer: {
     host: '0.0.0.0',
     port: 3000
@@ -21,9 +22,6 @@ export default defineNuxtConfig({
   },
 
   shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
     prefix: '',
     /**
      * Directory that the component lives in.
@@ -37,6 +35,10 @@ export default defineNuxtConfig({
     storage: 'localStorage',
     classSuffix: '',
   },
-
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.PUBLIC_ORIGIN,
+    }
+  },
   compatibilityDate: '2025-01-12',
 })

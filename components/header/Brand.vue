@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center gap-2">
         <Sheet>
-            <SheetTrigger>
+            <SheetTrigger as-child>
                 <Button variant="outline" size="icon" class="sm:hidden">
                     <Icon name="mdi:table-of-contents" class="w-7 h-7" />
                 </Button>

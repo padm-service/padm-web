@@ -2,32 +2,33 @@
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" size="icon">
-                <a class="text-3xl">🙂</a>
+                <span class="text-3xl">🙂</span>
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-            <DropdownMenuLabel class="w-40 font-semibold text-lg">用户23454</DropdownMenuLabel>
-            <DropdownMenuLabel class="font-normal dark:text-gray-400 text-gray-500">账号ID: 690658643</DropdownMenuLabel>
+            <DropdownMenuLabel class="w-40 font-semibold text-lg">{{ user?.name }}</DropdownMenuLabel>
+            <!-- <DropdownMenuLabel class="font-normal dark:text-gray-400 text-gray-500">账号ID: {{ user?.scope }}
+            </DropdownMenuLabel> -->
             <DropdownMenuSeparator />
-
-            <DropdownMenuRadioGroup class="font-bold justify-self-center">
-                <NuxtLink to="/setting">
-                    <DropdownMenuRadioItem class=" cursor-pointer justify-center">个人中心
-                    </DropdownMenuRadioItem>
+            <DropdownMenuGroup class="font-bold justify-self-center">
+                <NuxtLink to="/setting" class="contents">
+                    <DropdownMenuItem class=" cursor-pointer justify-center">个人中心
+                    </DropdownMenuItem>
                 </NuxtLink>
-                <NuxtLink to="/services">
-                    <DropdownMenuRadioItem class="cursor-pointer justify-center">控制台
-                    </DropdownMenuRadioItem>
+                <NuxtLink to="/services" class="contents">
+                    <DropdownMenuItem class="cursor-pointer justify-center">控制台
+                    </DropdownMenuItem>
                 </NuxtLink>
-                <NuxtLink to="/iam/login">
-                    <DropdownMenuRadioItem class="text-red-600  cursor-pointer justify-center">退出登录
-                    </DropdownMenuRadioItem>
-                </NuxtLink>
-            </DropdownMenuRadioGroup>
+                <DropdownMenuItem class="text-red-600  cursor-pointer justify-center " @click="logout">退出登录
+                </DropdownMenuItem>
+            </DropdownMenuGroup>
         </DropdownMenuContent>
     </DropdownMenu>
 </template>
-
-<script setup></script>
-
-<style scoped></style>
+<script setup lang="ts">
+const authStore = userAuthStore();
+const { user } = storeToRefs(authStore);
+const logout = () => {
+    authStore.clearUser();
+};
+</script>
