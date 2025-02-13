@@ -1,3 +1,4 @@
+import { type OpenAPIObject, OpenApiBuilder } from 'openapi3-ts/oas31';
 export type MenuItem = {
     id: string;
     name: string;
@@ -17,7 +18,7 @@ type BaseUnauthed = Omit<Base, "userId">;
 export type User = BaseUnauthed & {
     name: string,
     email: string,
-    level: string,
+    level: number,
     balance: number,
     scope: string,
     state: string,
@@ -38,7 +39,7 @@ export type Key = Base & {
 export type Service = Base & {
     readme: string,
     level: number,
-    schema: string,
+    schema: OpenAPIObject,
     tools: string,
     unit_price: string
 };
@@ -50,5 +51,16 @@ export type Node = Base & {
     name: string
 };
 
+export type Assistant = Base & {
+    name: string,
+    description: string,
+    knowledge: string,
+    level: number,
+    services: Array<string>,
+    model: string,
+    system_prompt: string,
+    temperature: number,
+    top_p: number
+}
 
 

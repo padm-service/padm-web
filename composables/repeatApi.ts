@@ -1,13 +1,13 @@
 import { ref } from 'vue'
-import type { Key, Service } from '@/lib/type'
+import type { Assistant, Key, Service } from '@/lib/type'
 const { get, del, post, put } = useApi();
-const schema = JSON.stringify({
+const schema = {
     openapi: "3.0.3",
     info: {
         title: "未命名模型",
         version: "0.0.1"
     },
-});
+};
 //key
 export const useKeys = () => {
     const keyList = ref<Key[]>([]);
@@ -26,12 +26,7 @@ export const useServices = () => {
 
     const createService = async () => {
         return await post('/services', {
-            icon: '🌐',
             schema,
-            readme: "",
-            level: -1,
-            unit_price: 0,
-            tools: [],
         }) as Service;
     };
     const getServices = async () => {
@@ -48,4 +43,24 @@ export const useServices = () => {
     };
     return { createService, getServices, getService, updateService, deleteService }
 }
-//node
+//assistant
+
+export const useAssistants = () => {
+
+    const createAssistant = async (object: Object) => {
+        return await post('/services', object) as Service;
+    };
+    const getAssistants = async () => {
+        return await get('/assistants') as Assistant[];
+    };
+    const getAssistant = async (id: string) => {
+        return await get(`/assistants/${id}`) as Assistant;
+    };
+    const updateAssistant = async (id: string, object: Object) => {
+        return await put(`/assistants/${id}`, object) as Assistant;
+    };
+    const deleteAssistant = async (id: string) => {
+        await del(`/assistants/${id}`);
+    };
+    return { createAssistant, getAssistants, getAssistant, updateAssistant, deleteAssistant }
+}

@@ -77,8 +77,6 @@ const Submit = async (values: RegisterForm) => {
         pending.value = false;
         await navigateTo('/iam/login');
     } catch (error: any) {
-        console.log(error.message);
-
         if (error?.message === "Conflict")
             toast.error("该邮箱已被注册！");
         else

@@ -39,3 +39,10 @@ export const zNodeForm = z.object({
 });
 export type NodeForm = z.infer<typeof zNodeForm>;
 
+export const zAssistantForm = z.object({
+    name: z.string(),
+    description: z.string(),
+});
+export type AssistantForm = z.infer<typeof zAssistantForm>;
+
+

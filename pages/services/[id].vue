@@ -2,7 +2,7 @@
     <div class="flex flex-col flex-1 overflow-x-hidden">
         <div class="border-b  border-opacity-10 ">
             <div class="container container-xl pb-2 ">
-                <ContainerHeader :title="`${service?.icon} ${title}`">
+                <ContainerHeader :title="`${service?.icon} ${service?.schema.info.title}`">
                 </ContainerHeader>
                 <div class="flex flex-row gap-2">
                     <div v-for="link in links" :key="link.id">
@@ -31,7 +31,6 @@
 const router = useRoute();
 const { getService } = useServices();
 const { service } = storeToRefs(serviceStore());
-const title = ref('');
 definePageMeta({
     layout: 'router'
 });
@@ -41,7 +40,6 @@ const links = [{ id: "doc", name: "文档" },
 ];
 onMounted(async () => {
     service.value = await getService(router.params.id as string);
-    title.value = toJson(service.value?.schema as string)?.info?.title;
 })
 // if (user?.id === data.service.user) {
 // links.push({ id: "settings", name: "设置" });

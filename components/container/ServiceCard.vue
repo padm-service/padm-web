@@ -7,12 +7,12 @@
                 <h3>
                     <NuxtLink :to="`/services/${service.id}/setting`"
                         class="font-extrabold text-md  hover:text-blue-500">
-                        {{ toJson(service.schema)?.info?.title }}
+                        {{ service.schema?.info?.title }}
                     </NuxtLink>
                 </h3>
-                <p class="pt-2 text-sm">{{ toJson(service.schema)?.info?.description ?? "-" }}</p>
+                <p class="pt-2 text-sm">{{ service.schema?.info?.description ?? "-" }}</p>
                 <div class="flex gap-2 flex-wrap pt-2">
-                    <Badge variant="secondary" v-for="tag in toJson(service.schema)?.tags ?? []" :key="tag.name">
+                    <Badge variant="secondary" v-for="tag in service.schema?.tags ?? []" :key="tag.name">
                         {{ tag?.name }}
                     </Badge>
                 </div>

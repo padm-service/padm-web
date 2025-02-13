@@ -1,6 +1,5 @@
 <template>
-    <Textarea class="dark:bg-[#313131] bg-[#e8e8e8] field-sizing-content rounded-md p-2"
-        v-model:model-value="textContent" />
+    <Textarea class="dark:bg-[#313131] bg-[#e8e8e8]  rounded-md p-2" v-model:model-value="textContent" />
     <div class="flex pt-2 justify-end gap-2 items-center">
         <Label for="doc"
             class="px-4 py-2 border rounded-md h-9 flex items-center cursor-pointer dark:hover:bg-[#313131] hover:bg-[#e8e8e8]">
@@ -14,6 +13,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { toast } from 'vue-sonner';
 const { updateService } = useServices();
 const route = useRoute();
 const prop = defineProps({
@@ -33,13 +33,9 @@ onMounted(() => {
 
 });
 async function updateText() {
-    await updateService(route.params.id as string, { [prop.name]: textContent });
+    const result = prop.name === 'schema' ? JSON.parse(textContent.value) : textContent.value;
+    await updateService(route.params.id as string, { [prop.name]: result });
+    toast.success('保存成功');
 }
 
 </script>
-
-<style>
-textarea {
-    field-sizing: content;
-}
-</style>

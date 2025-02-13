@@ -15,7 +15,7 @@ export const toFormatJson = (object: any) => {
 export function getTags(services: Service[]) {
   const S = new Set();
   for (const { schema } of services) {
-    for (const { name } of toJson(schema)?.tags ?? []) {
+    for (const { name } of schema?.tags ?? []) {
       S.add(name);
     }
   }
@@ -34,4 +34,23 @@ export function groupTags(tags: string[]) {
     G[type].push(subtype);
     return G;
   }, {} as Record<string, string[]>);
+}
+
+export function getServicesByTags(services: Service[], tags: string[]): Service[] {
+  return services.filter((service) => {
+    // 获取 Service 的 tags
+    const serviceTags = service.schema?.tags ?? [];
+    // 检查所有标签是否都被包含
+    return tags.every((tag) => {
+      return serviceTags.some((t: any) => t.name === tag);
+    });
+  });
+}
+export function getServicesByTitle(services: Service[], keyword: string): Service[] {
+  return services.filter((service) => {
+    // 获取 Service 的 tags
+    const serviceTags = service.schema?.info?.title ?? "";
+    // 检查所有标签是否都被包含
+    return serviceTags.includes(keyword);
+  });
 }

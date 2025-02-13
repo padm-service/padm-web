@@ -94,7 +94,6 @@ const Submit = async (values: KeyForm) => {
         await getKey();
         pending.value = false;
     } catch (error: any) {
-        console.log(error);
         pending.value = false;
     }
 }

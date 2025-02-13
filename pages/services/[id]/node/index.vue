@@ -66,7 +66,6 @@ const openState = ref(false);
 const route = useRoute();
 const Submit = async (values: NodeForm) => {
     try {
-        console.log(values);
         pending.value = true;
         await post(`/services/${route.params.id}/nodes`, { ...values, state: "运行中", serviceId: route.params.id });
         if (nodeCard.value) {
@@ -76,7 +75,6 @@ const Submit = async (values: NodeForm) => {
         openState.value = false;
         pending.value = false;
     } catch (error: any) {
-        console.log(error);
         pending.value = false;
     }
 }
