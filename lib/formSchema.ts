@@ -32,3 +32,10 @@ export const zKeyForm = z.object({
     purpose: z.string()
 });
 export type KeyForm = z.infer<typeof zKeyForm>;
+
+export const zNodeForm = z.object({
+    url: z.string().url(),
+    name: z.string(),
+});
+export type NodeForm = z.infer<typeof zNodeForm>;
+

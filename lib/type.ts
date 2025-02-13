@@ -35,7 +35,20 @@ export type Key = Base & {
     purpose: string,
     services: Array<string>,
 };
+export type Service = Base & {
+    readme: string,
+    level: number,
+    schema: string,
+    tools: string,
+    unit_price: string
+};
 
+export type Node = Base & {
+    url: string,
+    state: string,
+    serviceId: string,
+    name: string
+};
 
 
 

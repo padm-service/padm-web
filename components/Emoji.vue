@@ -2,7 +2,7 @@
     <Popover>
         <PopoverTrigger as-child>
             <Button variant="ghost" class="w-16">
-                <Icon name="line-md:cookie-settings-twotone" class="w-7 h-7"></Icon>
+                <Icon name="hugeicons:installing-updates-01" class="w-7 h-7"></Icon>
             </Button>
         </PopoverTrigger>
         <PopoverContent side="bottom" class="contents">

@@ -22,7 +22,7 @@
                     </Select>
                     <Button variant="ghost">
                         <Icon name="solar:copy-line-duotone"
-                            class="cursor-pointer w-5 h-5 transition-colors bg-green-600 " @click=copy("adada")>
+                            class="cursor-pointer w-5 h-5 transition-colors bg-green-600 ">
                         </Icon>
                     </Button>
                 </div>

@@ -19,7 +19,7 @@
             </TableHeader>
             <TableBody>
                 <template v-if="keyList?.length">
-                    <TableRow v-for="key in keyList" :key="key.id">
+                    <TableRow v-for="key in keyList" :key="key.id" v-auto-animate>
                         <TableCell class="font-bold">
                             🗝️
                         </TableCell>
@@ -68,6 +68,7 @@
 
 <script lang="ts" setup>
 import { type Key } from '@/lib/type'
+import { vAutoAnimate } from '@formkit/auto-animate/vue'
 const { getKey, keyList, delKey } = useKeys();
 const { keyListState } = storeToRefs(apiStore());
 onMounted(async () => {

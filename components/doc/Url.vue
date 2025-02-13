@@ -1,10 +1,9 @@
 <template>
     <div class="border w-fit p-2 rounded-md flex gap-2 items-center">
-        <Badge class="rounded-md p-1 uppercase bg-green-950" variant="outline" :class="{}">get</Badge>
+        <Badge class="rounded-md p-1 uppercase bg-green-950" variant="outline">get</Badge>
         <span ref="idElement" class="dark:text-gray-400 text-gray-500">
             https://api.platform.archivemodel.cn/assistants/{id}/chats/{chat_id}</span>
-        <Icon name="solar:copy-line-duotone" class="cursor-pointer hover:text-blue-500 transition-colors bg-green-600"
-            @click=copy("https://api.platform.archivemodel.cn/assistants/{id}/chats/{chat_id}")>
+        <Icon name="solar:copy-line-duotone" class="cursor-pointer hover:text-blue-500 transition-colors bg-green-600">
         </Icon>
     </div>
 </template>
