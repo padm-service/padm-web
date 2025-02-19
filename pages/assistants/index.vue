@@ -61,15 +61,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { Assistant } from "~/lib/type";
 import { zAssistantForm, type AssistantForm } from '~/lib/formSchema';
 import { toast } from 'vue-sonner';
 definePageMeta({
     layout: 'router'
 })
-const { get, post } = useApi();
-const { createAssistant, getAssistants } = useAssistants();
-const { assistantList, assistant } = storeToRefs(assistantStore());
+const { post } = useApi();
+const { getAssistants } = useAssistants();
+const { assistantList } = storeToRefs(assistantStore());
 onMounted(async () => {
     await getList();
 })

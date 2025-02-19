@@ -1,5 +1,5 @@
 <template>
-    <div class="px-4 sm:px-8  flex flex-1">
+    <div class="px-4 sm:px-8  flex flex-1" v-if="isLoading">
         <div class=" py-8 sm:px-8 flex-1 flex flex-col">
             <div class="pb-6">
                 <ContainerHeader title="数字模型"></ContainerHeader>
@@ -11,7 +11,7 @@
             </div>
             <ContainerServiceCard></ContainerServiceCard>
         </div>
-        <ContainerSerach v-if="isLoading"></ContainerSerach>
+        <ContainerSerach></ContainerSerach>
     </div>
 </template>
 

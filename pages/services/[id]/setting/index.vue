@@ -1,6 +1,6 @@
 <template>
     <ScrollArea>
-        <div class="container container-md" v-if="loading">
+        <div class="container container-md overflow-x-hidden" v-if="loading">
             <div>
                 <h2 class="font-bold text-xl">模型ICON</h2>
                 <ContainerEmojiSelect name="service" class="mt-4">
@@ -15,11 +15,8 @@
                     </NuxtLink>
                 </p>
             </div>
-            <div v-if="service?.schema">
+            <div>
                 <ContainerTextArea name="readme" :content="service?.readme ?? ''"></ContainerTextArea>
-            </div>
-            <div v-else>
-                加载中
             </div>
             <div>
                 <h2 class="font-bold text-xl">接口描述</h2>
@@ -30,12 +27,9 @@
                     </NuxtLink>
                 </p>
             </div>
-            <div v-if="service?.schema">
+            <div>
                 <ContainerTextArea name="schema" :content="JSON.stringify(service?.schema, undefined, 2)">
                 </ContainerTextArea>
-            </div>
-            <div v-else>
-                加载中
             </div>
             <ContainerDanger name="service"></ContainerDanger>
         </div>

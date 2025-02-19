@@ -11,12 +11,13 @@
                     </NuxtLink>
                 </h3>
                 <p class="pt-2 text-sm">{{ service.schema?.info?.description ?? "-" }}</p>
-                <div class="flex gap-2 flex-wrap pt-2">
+                <div class="flex gap-1 flex-wrap pt-2 ">
                     <Badge variant="secondary" v-for="tag in service.schema?.tags ?? []" :key="tag.name">
                         {{ tag?.name }}
                     </Badge>
                 </div>
-                <div class="p-1 absolute top-0 right-0 bg-blue-500  rounded-tr-md rounded-bl-md text-white">
+                <div
+                    class="p-1 pb-0 absolute top-0 right-0 bg-blue-500  rounded-tr-md rounded-bl-md text-white text-xs">
                     最新模型
                 </div>
             </div>

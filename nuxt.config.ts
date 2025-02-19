@@ -6,7 +6,10 @@ export default defineNuxtConfig({
     host: '0.0.0.0',
     port: 3000
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css',
+    'highlight.js/styles/github.css', // 默认亮色主题
+    'highlight.js/styles/github-dark.css' // 暗黑模式主题
+  ],
   pages: true,
   modules: [
     '@nuxtjs/tailwindcss',

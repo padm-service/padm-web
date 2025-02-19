@@ -3,7 +3,6 @@ export const useApi = () => {
     const request = async (url: string, options: any = {}) => {
         const baseUrl = useRuntimeConfig().public.apiBase;
         const loginUrl = ['/iam/login', '/iam/register'].some(path => url.startsWith(path));
-
         const defaultOptions = {
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -11,6 +10,13 @@ export const useApi = () => {
             ...options,
         };
 
+        // 添加鉴权令牌（排除登录/注册接口）
+        if (!loginUrl) {
+            const token = useCookie('hz_token').value;
+            if (token && !defaultOptions.headers.has('Authorization')) {
+                defaultOptions.headers.set('Authorization', `Bearer ${token}`);
+            }
+        }
         const { data, status, error, refresh, clear } = await useFetch(`${baseUrl}${url}`, {
             ...defaultOptions,
             onRequest({ options }) {
@@ -43,7 +49,6 @@ export const useApi = () => {
         }
         return data.value;
     };
-
     // GET 请求
     const get = (url: string, params: object = {}) => {
         return request(url, { method: 'GET', params });
@@ -63,7 +68,6 @@ export const useApi = () => {
     const del = (url: string) => {
         return request(url, { method: 'DELETE' });
     };
-
     // 返回封装的所有请求方法
     return {
         get,

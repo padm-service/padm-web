@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { Assistant, Key, Service } from '@/lib/type'
+import type { Assistant, Chat, Key, Message, Service, FileUpload, PreSignedURL } from '@/lib/type'
 const { get, del, post, put } = useApi();
 const schema = {
     openapi: "3.0.3",
@@ -64,3 +64,26 @@ export const useAssistants = () => {
     };
     return { createAssistant, getAssistants, getAssistant, updateAssistant, deleteAssistant }
 }
+
+//chat
+export const useChats = () => {
+    const createChat = async (id: string, object: Object) => {
+        return await post(`/assistants/${id}/chats`, object) as Chat;
+    };
+    const getChats = async (id: string) => {
+        return await get(`/assistants/${id}/chats`) as Chat[];
+    };
+    const deleteChat = async (assId: string, chatId: string) => {
+        await del(`/assistants/${assId}/chats/${chatId}`);
+    };
+    return { createChat, getChats, deleteChat }
+}
+//message
+export const useMsgs = () => {
+    const getMsgs = async (assId: string, chatId: string) => {
+        return await get(`/assistants/${assId}/chats/${chatId}/message`) as Message[];
+    };
+
+    return { getMsgs }
+}
+//file

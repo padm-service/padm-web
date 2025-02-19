@@ -13,20 +13,40 @@
                     <Icon name="wpf:statistics" class="w-5 h-5" />
                     统计
                 </Button>
-                <Button v-if="node.state === '运行中'" variant="outline" @click="updateNode(node.id, { state: '暂停中' })">
+                <Button v-if="node.state === 'run'" variant="outline"
+                    @click="updateNode(node.id, { state: 'suspend' })">
                     <Icon name="material-symbols:pause-outline" class="w-5 h-5" />
                     暂停
                 </Button>
-                <Button v-else variant="outline" @click="updateNode(node.id, { state: '运行中' })">
+                <Button v-else variant="outline" @click="updateNode(node.id, { state: 'run' })">
                     <Icon name="iconamoon:player-start-duotone" class="w-5 h-5" />
                     启动
                 </Button>
-                <Button variant="outline" @click="delNode(node.id)">
-                    <Icon name="fluent:delete-32-filled" class="w-5 h-5 bg-red-600 dark:bg-red-800" />
-                    删除
-                </Button>
+                <AlertDialog>
+                    <AlertDialogTrigger as-child>
+                        <Button variant="outline">
+                            <Icon name="fluent:delete-32-filled" class="w-5 h-5 bg-red-600 dark:bg-red-800 " />
+                            删除
+                        </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent class="sm:w-auto w-5/6 rounded-md">
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>删除该代理节点?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                该节点将被永久删除，不可恢复及撤销。确定要删除吗？
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel>取消</AlertDialogCancel>
+                            <AlertDialogAction @click="delNode(node.id)"
+                                class="bg-[#ca4d4d] hover:bg-[#c93636] dark:bg-[#961f1f] dark:hover:bg-[#ae3737] text-white ">
+                                删除
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
             </div>
-            <div v-if="node.state === '运行中'"
+            <div v-if="node.state === 'run'"
                 class="p-1 absolute top-0 right-0 dark:bg-[#19312B] bg-[#E5FDF7]  rounded-tr-md rounded-bl-md text-[#30ddb2] ">
                 运行中
             </div>

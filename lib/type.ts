@@ -54,13 +54,67 @@ export type Node = Base & {
 export type Assistant = Base & {
     name: string,
     description: string,
-    knowledge: string,
+    knowledge: Array<string>,
     level: number,
     services: Array<string>,
+    llm: LLM
+}
+export type LLM = {
     model: string,
-    system_prompt: string,
+    systemPrompt: string,
     temperature: number,
     top_p: number
 }
+export type Chat = Base & {
+    summary: string,
+    assistantId: string,
+}
 
+export type Message = Base & {
+    role: "user" | "assistant" | "system",
+    content: MessageContent[]
+};
 
+type MessageContentText = {
+    type: "text",
+    text: string,
+};
+
+type MessageContentFileURL = {
+    type: "file",
+    file: {
+        url: string,
+        name: string,
+        type: string,
+        size: number,
+    },
+    text: ""
+};
+
+export type MessageContent = (
+    MessageContentText |
+    MessageContentFileURL
+);
+
+export type File = Base & {
+    type: string,
+    name: string,
+    object_key: string,
+    state: string,
+    pre_signed_url: string,
+    size: number,
+};
+export type FileUpload = {
+    id: string,
+    type: string,
+    name: string,
+    progress: number,
+    url: string,
+    size: number,
+};
+export type PreSignedURL = {
+    url: string
+    object_key: string
+    // expires: number
+
+}
