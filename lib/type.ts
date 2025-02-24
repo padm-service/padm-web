@@ -105,16 +105,29 @@ export type File = Base & {
     size: number,
 };
 export type FileUpload = {
-    id: string,
     type: string,
     name: string,
     progress: number,
     url: string,
     size: number,
+    fileId: string,
 };
 export type PreSignedURL = {
     url: string
     object_key: string
-    // expires: number
-
+}
+export type Colletion = Base & {
+    name: string,
+    description: string,
+    partitionID: Array<string>,
+    used: number
+}
+export type Partition = Base & {
+    name: string,
+    url: string,
+    size: number,
+    state: string,
+    expire: string,
+    segment: number,
+    fileId: number,
 }

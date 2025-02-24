@@ -1,7 +1,7 @@
 <template>
-    <div v-for="file in fileUploadList" :key="file.id" class="relative" v-if="fileUploadList.length > 0">
+    <div v-for="file in fileUploadList" :key="file.fileId" class="relative" v-if="fileUploadList.length > 0">
         <div class="absolute -top-1 -right-1">
-            <Icon name="carbon:close-filled" class="bg-red-500 cursor-pointer" @click="removeFile(file.id)"></Icon>
+            <Icon name="carbon:close-filled" class="bg-red-500 cursor-pointer" @click="removeFile(file.fileId)"></Icon>
         </div>
         <div class="rounded-md border bg-white dark:bg-[#1E1E26] p-2 flex sm:gap-4 gap-1  items-center ">
             <div v-if="Math.round(file.progress) === 100">
@@ -27,6 +27,6 @@ const props = defineProps({
     }
 })
 const removeFile = (id: string) => {
-    fileUploadList.value = fileUploadList.value.filter(item => item.id !== id);
+    fileUploadList.value = fileUploadList.value.filter(item => item.fileId !== id);
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container container-xl">
+    <div class="container container-xl overflow-auto sb-none">
         <ContainerHeader title="账号设置"></ContainerHeader>
         <span class="font-bold text-lg">基本信息</span>
         <Basic></Basic>

@@ -11,20 +11,6 @@ import { toast } from 'vue-sonner';
 const store = fileStore();
 const { fileUploadList } = storeToRefs(store);
 const acceptType = ".pdf,.doc,.docx,.ppt,.pptx,.txt,.csv,.xlsx,.xls,.md,.jpg,.png,.jpeg";
-const props = defineProps({
-    accept: {
-        type: String,
-        default: 'image/*'
-    },
-    icon: {
-        type: String,
-        default: 'image'
-    },
-    title: {
-        type: String,
-        default: '添加图片'
-    }
-})
 const handleUpload = async (e: Event) => {
     const inputElement = e.target as HTMLInputElement;
     const files = inputElement.files;
@@ -42,7 +28,7 @@ const handleUpload = async (e: Event) => {
         }
     }
     const fileItems = filesArray.map(file => ({
-        id: Math.random().toString(36).slice(2),
+        fileId: Math.random().toString(36).slice(2),
         url: "",
         type: file.type,
         name: file.name,

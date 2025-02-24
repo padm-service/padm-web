@@ -26,23 +26,24 @@
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow v-for="invoice in invoices" :key="invoice.invoice">
+                <TableRow v-for="user in userList" :key="user.id">
                     <TableCell class="w-5">
                         <Checkbox></Checkbox>
                     </TableCell>
-                    <TableCell>😀</TableCell>
+                    <TableCell> {{ user.icon }}</TableCell>
                     <TableCell class="font-bold">
-                        {{ invoice.invoice }}
+                        {{ user.name }}
                     </TableCell>
-                    <TableCell>{{ invoice.paymentStatus }}</TableCell>
-                    <TableCell>{{ invoice.paymentMethod }}</TableCell>
+                    <TableCell>{{ user.id }}</TableCell>
+                    <TableCell>{{ convertDate(user.created_at) }}</TableCell>
                     <TableCell>
-                        {{ invoice.totalAmount }}
+                        {{ convertDate(user.updated_at) }}
                     </TableCell>
                     <TableCell>
                         <div class="flex items-center gap-2">
-                            <Label for="airplane-mode">启用</Label>
-                            <Switch id="airplane-mode" />
+                            <Label for="state">启用</Label>
+                            <Switch id="state" :default-checked="user.state === 'normal'"
+                                @update:checked="checked => sigleUpdate(user.id, checked)" />
                         </div>
                     </TableCell>
                     <TableCell>
@@ -53,42 +54,7 @@
                                 </Button>
                             </PopoverTrigger>
                             <PopoverContent class="border flex flex-col w-fit">
-                                <Sheet>
-                                    <SheetTrigger as-child>
-                                        <Button variant="ghost" class="text-green-500 hover:text-green-500">
-                                            <Icon name="carbon:user-role" class="dark:bg-green-500 "></Icon>权限
-                                        </Button>
-                                    </SheetTrigger>
-                                    <SheetContent>
-                                        <SheetHeader>
-                                            <SheetTitle>Marry的权限审批</SheetTitle>
-                                            <SheetDescription>
-                                                勾选模型即可授予权限，取消勾选收回权限。
-                                            </SheetDescription>
-                                        </SheetHeader>
-                                        <Serach class="my-8"></Serach>
-                                        <ScrollArea class="rounded-md border  mt-2">
-                                            <div class="p-4  max-h-96 ">
-                                                <div v-for="tag in tags" :key="tag">
-                                                    <div class="flex items-center gap-4">
-                                                        <Checkbox id="terms" />
-                                                        <label for="terms" class="text-md hover:text-blue-600 ">
-                                                            冠层分支结构分析
-                                                        </label>
-                                                    </div>
-                                                    <Separator class="my-2" />
-                                                </div>
-                                            </div>
-                                        </ScrollArea>
-                                        <SheetFooter>
-                                            <SheetClose as-child>
-                                                <Button type="submit" class="mt-4">
-                                                    提交
-                                                </Button>
-                                            </SheetClose>
-                                        </SheetFooter>
-                                    </SheetContent>
-                                </Sheet>
+                                <Role :user="user"></Role>
                                 <AlertDialog>
                                     <AlertDialogTrigger as-child>
                                         <Button variant="ghost" class="text-red-600 hover:text-red-600">
@@ -105,7 +71,7 @@
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
                                             <AlertDialogCancel>取消</AlertDialogCancel>
-                                            <AlertDialogAction
+                                            <AlertDialogAction @click="logOff(user.id)"
                                                 class="bg-[#ca4d4d] hover:bg-[#c93636] dark:bg-[#961f1f] dark:hover:bg-[#ae3737] text-white">
                                                 确定</AlertDialogAction>
                                         </AlertDialogFooter>
@@ -121,16 +87,22 @@
 </template>
 
 <script lang="ts" setup>
-import Serach from './serach.vue';
-const tags = Array.from({ length: 50 }).map(
-    (_, i, a) => `v1.2.0-beta.${a.length - i}`,
-)
-const invoices = [
-    {
-        invoice: 'INV001',
-        paymentStatus: 'Paid',
-        totalAmount: '$250.00',
-        paymentMethod: 'Credit Card',
-    }
-]
+import { toast } from 'vue-sonner';
+import Role from './role.vue';
+const selectUsers = ref<String[]>([]);
+const { getServices } = useServices();
+const { updateUsers, delUsers } = useUsers();
+const { userList } = storeToRefs(userAuthStore());
+const { serviceList } = storeToRefs(serviceStore());
+onMounted(async () => {
+    serviceList.value = await getServices();
+});
+const sigleUpdate = async (id: string, checked: boolean) => {
+    const state = checked ? 'normal' : "disable";
+    userList.value = await updateUsers({ ids: [id], update: { state } })
+}
+const logOff = async (id: string) => {
+    userList.value = await delUsers(id);
+    toast.success("注销成功！");
+}
 </script>

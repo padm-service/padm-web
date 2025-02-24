@@ -2,7 +2,9 @@ import type { User } from "~/lib/type";
 
 const { get } = useApi();
 export const userAuthStore = defineStore('auth', () => {
+    const selectUser = ref([])
     const user = ref<User | null>(null);
+    const userList = ref<User[]>([]);
     const isAuthenticated = ref(false);
     const fetchUser = async () => {
         try {
@@ -20,5 +22,5 @@ export const userAuthStore = defineStore('auth', () => {
         navigateTo('/iam/login');
     }
 
-    return { user, isAuthenticated, fetchUser, clearUser };
+    return { user, isAuthenticated, fetchUser, clearUser, userList, selectUser };
 })

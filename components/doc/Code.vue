@@ -28,14 +28,10 @@
                 </div>
             </header>
             <div class="p-2 text-[13px] font-[18px] overflow-x-auto sb-none rounded-b-md border">
-                const options = {
-                method: "GET",
-                headers: {
-                "X-API-Key": "Your API Key",
-                "Content-Type": "application/json"
-                },
-                };
-                fetch("https://api.platform.archivemodel.cn/assistants", options);
+                <ContainerMarkdown
+                    :content="'curl --request GET \
+  --url https://api.platform.archivemodel.cn/services/service:09yb6hgxv9wvoe77ly9n/fetch/fruit_forecast/{task id}/status--header'">
+                </ContainerMarkdown>
             </div>
         </div>
     </div>

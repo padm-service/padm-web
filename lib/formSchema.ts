@@ -44,5 +44,27 @@ export const zAssistantForm = z.object({
     description: z.string(),
 });
 export type AssistantForm = z.infer<typeof zAssistantForm>;
-
+export const zColletionForm = z.object({
+    name: z.string(),
+    description: z.string(),
+});
+export type ColletionForm = z.infer<typeof zColletionForm>;
+export const zUpdatePass = z.object({
+    oldPass: z.string()
+        .min(8, { message: '密码长度至少为 8 个字符' })
+        .regex(
+            /^(?=.*[A-Za-z])(?=.*\d).*$/,
+            { message: '密码必须包含至少一个字母和一个数字' }
+        ),
+    newPass: z.string()
+        .min(8, { message: '密码长度至少为 8 个字符' })
+        .regex(
+            /^(?=.*[A-Za-z])(?=.*\d).*$/,
+            { message: '密码必须包含至少一个字母和一个数字' }
+        ),
+}).refine((data) => data.oldPass !== data.newPass, {
+    message: "原密码不能与新密码相同",
+    path: ["newPass"],
+});;
+export type UpdatePass = z.infer<typeof zUpdatePass>;
 

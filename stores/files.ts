@@ -42,6 +42,7 @@ export const fileStore = defineStore('file', () => {
                     method: "PUT",
                     size: file.size
                 }) as File;
+                fileUploadList.value[i - length + fileUploadList.value.length].fileId = fileRecord.id;
                 fileUploadList.value[i - length + fileUploadList.value.length].url = fileRecord.pre_signed_url;
                 return fileRecord;
             }))

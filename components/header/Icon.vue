@@ -7,7 +7,7 @@
         </DropdownMenuTrigger>
         <DropdownMenuContent>
             <DropdownMenuLabel class="w-40 font-semibold text-lg">{{ user?.name }}</DropdownMenuLabel>
-            <!-- <DropdownMenuLabel class="font-normal dark:text-gray-400 text-gray-500">账号ID: {{ user?.scope }}
+            <!-- <DropdownMenuLabel class="font-normal dark:text-gray-400 text-gray-500">账号ID: {{ user?.id }}
             </DropdownMenuLabel> -->
             <DropdownMenuSeparator />
             <DropdownMenuGroup class="font-bold justify-self-center">

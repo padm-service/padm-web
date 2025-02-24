@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ssr: false,
   devServer: {
     host: '0.0.0.0',
-    port: 3000
+    port: 5000
   },
   css: ['~/assets/css/main.css',
     'highlight.js/styles/github.css', // 默认亮色主题

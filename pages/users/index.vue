@@ -11,7 +11,12 @@
 <script lang="ts" setup>
 import Serach from './serach.vue';
 import UserTable from './userTable.vue'
+const { getUsers } = useUsers();
+const { userList } = storeToRefs(userAuthStore());
 definePageMeta({
     layout: 'personal'
+})
+onMounted(async () => {
+    userList.value = await getUsers();
 })
 </script>

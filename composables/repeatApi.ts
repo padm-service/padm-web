@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { Assistant, Chat, Key, Message, Service, FileUpload, PreSignedURL } from '@/lib/type'
+import type { Assistant, Chat, Key, Message, Service, FileUpload, PreSignedURL, Colletion, Partition, User } from '@/lib/type';
 const { get, del, post, put } = useApi();
 const schema = {
     openapi: "3.0.3",
@@ -8,6 +8,23 @@ const schema = {
         version: "0.0.1"
     },
 };
+//user
+export const useUsers = () => {
+
+    const updateUser = async (object: Object) => {
+        return await put('/user', object) as User;
+    };
+    const getUsers = async () => {
+        return await get(`/users`) as User[];
+    };
+    const updateUsers = async (object: Object) => {
+        return await put('/users', object) as User[];
+    };
+    const delUsers = async (id: string) => {
+        return await del(`/users/${id}`) as User[];
+    };
+    return { updateUser, getUsers, updateUsers, delUsers };
+}
 //key
 export const useKeys = () => {
     const keyList = ref<Key[]>([]);
@@ -44,7 +61,6 @@ export const useServices = () => {
     return { createService, getServices, getService, updateService, deleteService }
 }
 //assistant
-
 export const useAssistants = () => {
 
     const createAssistant = async (object: Object) => {
@@ -86,4 +102,50 @@ export const useMsgs = () => {
 
     return { getMsgs }
 }
-//file
+//colletion
+export const useColletions = () => {
+
+    const createColletion = async (object: Object) => {
+        return await post('/collections', object) as Colletion;
+    };
+    const getColletions = async () => {
+        return await get('/collections') as Colletion[];
+    };
+    const getColletion = async (id: string) => {
+        return await get(`/collections/${id}`) as Colletion;
+    };
+    const updateColletion = async (id: string, object: Object) => {
+        return await put(`/collections/${id}`, object) as Colletion;
+    };
+    const deleteColletion = async (id: string) => {
+        await del(`/collections/${id}`);
+    };
+    return { createColletion, getColletions, getColletion, updateColletion, deleteColletion }
+}
+
+//colletion
+export const usePartitions = () => {
+    const createPartition = async (id: string, object: Array<object>) => {
+        return await post(`/collections/${id}/partitions`, object) as Partition;
+    };
+    const getPartitions = async (id: string) => {
+        return await get(`/collections/${id}/partitions`) as Partition[];
+    };
+    const getPartition = async (collectionId: string, partitionId: string) => {
+        return await get(`/collections/${collectionId}/partitions/${partitionId}`) as Partition;
+    };
+    const updatePartition = async (collectionId: string, partitionId: string, object: object) => {
+        return await put(`/collections/${collectionId}/partitions/${partitionId}`, object) as Partition;
+    };
+    const deletePartition = async (collectionId: string, partitionId: string) => {
+        await del(`/collections/${collectionId}/partitions/${partitionId}`);
+    };
+    const updateBatchPartition = async (collectionId: string, object: object) => {
+        console.log(object);
+        return await post(`/collections/${collectionId}/partitions/batch`, object) as Partition[];
+    };
+    const deleteBatchPartition = async (collectionId: string, object: object) => {
+        await post(`/collections/${collectionId}/partitions/batch`, object);
+    };
+    return { createPartition, getPartitions, getPartition, updatePartition, deletePartition, updateBatchPartition, deleteBatchPartition }
+}

@@ -16,7 +16,15 @@
     </ScrollArea>
 </template>
 <script setup lang="ts">
+const { get } = useApi();
+const { apiDoc, apiDocList } = storeToRefs(apiDocStore());
+const baseUrl = useRuntimeConfig().public.apiBase;
 definePageMeta({
     layout: 'router'
+})
+onMounted(async () => {
+    apiDocList.value = await get('/doc');
+    console.log(apiDocList.value.paths);
+
 })
 </script>

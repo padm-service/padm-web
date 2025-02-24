@@ -1,7 +1,7 @@
 <template>
-    <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4  overflow-y-auto sb-none">
+    <div class=" grid flex-grow grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4  overflow-y-auto sb-none">
         <div v-for="assistant in assistantList" :key="assistant.id"
-            class="p-4 border  rounded-md flex gap-2 hover:border-blue-500  cursor-text relative ">
+            class="p-4 border  rounded-md flex gap-2 hover:border-blue-500  cursor-text relative">
             <span class="text-3xl md:text-4xl  flex">{{ assistant.icon }}</span>
             <div>
                 <h3 class="text-lg font-bold">

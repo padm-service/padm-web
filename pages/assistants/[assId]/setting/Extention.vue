@@ -2,19 +2,16 @@
     <span class="font-bold text-xl ">扩展</span>
     <div class="flex flex-col ">
         <Label for="knowledge" class="font-bold text-md">知识库</Label>
-        <Select :model-value=knowledge class="">
+        <Select v-model="knowledge">
             <SelectTrigger id="framework" class="mt-2 max-w-56 dark:bg-[#313131] bg-[#e8e8e8]">
                 <SelectValue placeholder="请选择知识库" />
             </SelectTrigger>
             <SelectContent position="popper">
-                <SelectItem value="password">
+                <SelectItem value="none">
                     默认（无）
                 </SelectItem>
-                <SelectItem value="OPT">
-                    柑橘知识库
-                </SelectItem>
-                <SelectItem value="APIKEY">
-                    草莓知识库
+                <SelectItem :value="colletion.id" v-for="colletion in colletionList" :key="colletion.id">
+                    {{ colletion.name }}
                 </SelectItem>
             </SelectContent>
         </Select>
@@ -42,16 +39,19 @@
 </template>
 <script setup lang="ts">
 import { toast } from 'vue-sonner';
-import type { Service } from '~/lib/type';
-const knowledge = "";
+const knowledge = ref("none");
 const route = useRoute();
 const selectSercices = ref<String[]>([]);
 const { getServices } = useServices();
 const { updateAssistant } = useAssistants();
+const { getColletions } = useColletions();
 const { assistant } = storeToRefs(assistantStore());
 const { serviceList } = storeToRefs(serviceStore());
+const { colletionList } = storeToRefs(colletionStore());
 onMounted(async () => {
-    serviceList.value = await getServices() as Service[];
+    knowledge.value = assistant.value?.knowledge[0] ?? "none" as string;
+    serviceList.value = await getServices();
+    colletionList.value = await getColletions();
     selectSercices.value = assistant.value?.services as string[];
 })
 
@@ -62,7 +62,7 @@ const handleCheck = (id: string, checked: boolean) => {
 }
 
 const update = async () => {
-    assistant.value = await updateAssistant(route.params.assId as string, { services: selectSercices });
+    assistant.value = await updateAssistant(route.params.assId as string, { services: selectSercices, knowledge: [knowledge.value] });
     toast.success("修改成功");
 } 
 </script>
