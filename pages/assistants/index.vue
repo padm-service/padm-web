@@ -70,7 +70,7 @@ const { post } = useApi();
 const { getAssistants } = useAssistants();
 const { assistantList } = storeToRefs(assistantStore());
 onMounted(async () => {
-    await getList();
+    assistantList.value = await getAssistants();
 })
 const pending = ref(false);
 const openState = ref(false);
@@ -78,16 +78,13 @@ const Submit = async (values: AssistantForm) => {
     try {
         pending.value = true;
         await post(`/assistants`, { ...values, services: [] });
-        await getList();
+        assistantList.value = await getAssistants();
         toast.success("创建成功！");
         openState.value = false;
         pending.value = false;
     } catch (error: any) {
         pending.value = false;
     }
-}
-async function getList() {
-    assistantList.value = await getAssistants();
 }
 const { onSubmit } = useCustomForm(zAssistantForm, Submit)
 

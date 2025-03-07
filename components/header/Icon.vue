@@ -2,7 +2,7 @@
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
             <Button variant="ghost" size="icon">
-                <span class="text-3xl">{{ user?.icon }}</span>
+                <span class="text-3xl">{{ user?.icon ?? '😀' }}</span>
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

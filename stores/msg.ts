@@ -15,7 +15,6 @@ export const messageStore = defineStore('msg', () => {
         } as Message);
         abortCtrl.value = new AbortController();
         option.messages = messageList.value.slice(0, -1);
-        console.log(option);
         fetchEventSource(baseUrl + `/assistants/${route.params.assId}/chats/${option.chatId}/query`, {
             method: 'POST',
             headers: {

@@ -1,5 +1,5 @@
-import type { Service } from "~/lib/type";
-
+import type { Service, User } from "~/lib/type";
+import type { OpenAPIObject } from "openapi3-ts/oas31";
 export const useCapitalize = (name: string) => {
   return name.charAt(0).toUpperCase() + name.slice(1)
 }
@@ -53,4 +53,31 @@ export function getServicesByTitle(services: Service[], keyword: string): Servic
     // 检查所有标签是否都被包含
     return serviceTags.includes(keyword);
   });
+}
+const allow_methods = ["get", "post", "delete", "put", "patch"];
+export async function group(schema: OpenAPIObject) {
+  const groups: any = {};
+  const endpoints: any = {};
+  if (schema.paths)
+    Object.entries(schema.paths).forEach(function ([path, path_object]) {
+      Object.entries(path_object).forEach(function ([method, operation]) {
+        if (allow_methods.includes(method)) {
+          for (const tag of operation.tags ?? []) {
+            if (!(tag in groups)) {
+              groups[tag] = [];
+            }
+            if (operation.tags) {
+              operation = { ...operation, method, path }
+              groups[tag].push(operation);
+              endpoints[operation.operationId] = operation;
+            }
+          }
+        }
+      });
+    });
+  return {
+    ...schema,
+    groups,
+    operations: endpoints,
+  };
 }

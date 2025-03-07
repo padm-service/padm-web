@@ -1,9 +1,10 @@
 <template>
-    <div class="container container-2xl sb-none overflow-y-auto ">
-        <Header></Header>
-        <Table></Table>
-    </div>
-
+    <ScrollArea class="flex-1 overflow-x-hidden">
+        <div class="container container-2xl sb-none overflow-y-auto ">
+            <Header></Header>
+            <Table></Table>
+        </div>
+    </ScrollArea>
 </template>
 
 <script lang="ts" setup>

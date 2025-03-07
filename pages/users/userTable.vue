@@ -1,10 +1,12 @@
 <template>
+    <Serach :selectUsers @update:select-users="selectUsers = $event"></Serach>
     <div class="rounded-md border mt-2">
         <Table class=" text-md ">
             <TableHeader>
                 <TableRow>
                     <TableHead class="w-5 flex items-center">
-                        <Checkbox></Checkbox>
+                        <Checkbox :checked="selectUsers.length === userList.length && selectUsers.length !== 0"
+                            @update:checked="checked => selectAll()"></Checkbox>
                     </TableHead>
                     <TableHead>
                         头像
@@ -28,7 +30,8 @@
             <TableBody>
                 <TableRow v-for="user in userList" :key="user.id">
                     <TableCell class="w-5">
-                        <Checkbox></Checkbox>
+                        <Checkbox :checked="selectUsers.includes(user.id)"
+                            @update:checked="checked => handleCheck(user.id, checked)"></Checkbox>
                     </TableCell>
                     <TableCell> {{ user.icon }}</TableCell>
                     <TableCell class="font-bold">
@@ -42,7 +45,7 @@
                     <TableCell>
                         <div class="flex items-center gap-2">
                             <Label for="state">启用</Label>
-                            <Switch id="state" :default-checked="user.state === 'normal'"
+                            <Switch id="state" :checked="user.state === 'normal'"
                                 @update:checked="checked => sigleUpdate(user.id, checked)" />
                         </div>
                     </TableCell>
@@ -87,6 +90,13 @@
 </template>
 
 <script lang="ts" setup>
+import Serach from './serach.vue';
+const props = defineProps({
+    allUsers: {
+        type: Array,
+        require: true
+    }
+});
 import { toast } from 'vue-sonner';
 import Role from './role.vue';
 const selectUsers = ref<String[]>([]);
@@ -99,10 +109,22 @@ onMounted(async () => {
 });
 const sigleUpdate = async (id: string, checked: boolean) => {
     const state = checked ? 'normal' : "disable";
-    userList.value = await updateUsers({ ids: [id], update: { state } })
+    userList.value = await updateUsers({ ids: [id], update: { state } });
+    toast.success("修改成功");
 }
 const logOff = async (id: string) => {
     userList.value = await delUsers(id);
     toast.success("注销成功！");
 }
+const selectAll = () => {
+    if (selectUsers.value.length)
+        selectUsers.value = [];
+    else
+        selectUsers.value = props.allUsers as string[];
+}
+const handleCheck = (id: string, checked: boolean) => {
+    selectUsers.value = checked
+        ? [...selectUsers.value, id]
+        : selectUsers.value.filter(item => item !== id)
+};
 </script>

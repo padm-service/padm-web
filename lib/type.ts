@@ -1,4 +1,4 @@
-import { type OpenAPIObject, OpenApiBuilder } from 'openapi3-ts/oas31';
+import type { OpenAPIObject, OperationObject } from 'openapi3-ts/oas31';
 export type MenuItem = {
     id: string;
     name: string;
@@ -131,3 +131,11 @@ export type Partition = Base & {
     segment: number,
     fileId: number,
 }
+export type Operation = OperationObject & {
+    method: string,
+    path: string,
+}
+export type SchemaGrouped = OpenAPIObject & {
+    groups: Record<string, Array<Operation>>,
+    operations: Record<string, Operation>,
+};

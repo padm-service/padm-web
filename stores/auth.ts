@@ -2,7 +2,9 @@ import type { User } from "~/lib/type";
 
 const { get } = useApi();
 export const userAuthStore = defineStore('auth', () => {
-    const selectUser = ref([])
+    const selectUser = ref([]);
+    const keyWord = ref('');
+    const searchUser = ref<User[]>([]);
     const user = ref<User | null>(null);
     const userList = ref<User[]>([]);
     const isAuthenticated = ref(false);
