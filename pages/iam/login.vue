@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center flex-1 items-center  bg-gradient-to-br   from-[#f3e8ff]  to-[#e0e7ff]
-              dark:from-[#2c2c54]  dark:to-[#003b70] ">
+              dark:from-[#1e1b2e]  dark:to-[#2a2e3b] ">
         <div class="min-w-80 sm:min-w-96 rounded-xl border p-5 dark:bg-[#1a1a1a] bg-[#f8f9fa]">
             <div class="flex  flex-col gap-2 items-center">
                 <span class="text-3xl font-bold">登录</span>
