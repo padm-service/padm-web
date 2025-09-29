@@ -44,4 +44,13 @@ export default defineNuxtConfig({
     }
   },
   compatibilityDate: '2025-01-12',
+  nitro: {
+    devProxy: {
+      "/api": {
+        target: process.env.PUBLIC_ORIGIN,
+        changeOrigin: true,
+        prependPath: true,
+      }
+    }
+  },
 })

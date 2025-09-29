@@ -1,7 +1,6 @@
 export const useApi = () => {
     // 创建一个通用的 API 请求封装
     const request = async (url: string, options: any = {}) => {
-        const baseUrl = useRuntimeConfig().public.apiBase;
         const loginUrl = ['/iam/login', '/iam/register'].some(path => url.startsWith(path));
         const defaultOptions = {
             headers: new Headers({
@@ -9,7 +8,6 @@ export const useApi = () => {
             }),
             ...options,
         };
-
         // 添加鉴权令牌（排除登录/注册接口）
         if (!loginUrl) {
             const token = useCookie('hz_token').value;
@@ -17,14 +15,18 @@ export const useApi = () => {
                 defaultOptions.headers.set('Authorization', `Bearer ${token}`);
             }
         }
-        const { data, status, error, refresh, clear } = await useFetch(`${baseUrl}${url}`, {
+        
+        // 使用代理URL
+        const apiUrl = `/api${url}`;
+        
+        const { data, status, error, refresh, clear } = await useFetch(apiUrl, {
             ...defaultOptions,
             onRequest({ options }) {
                 if (!loginUrl) {
                     const token = useCookie('hz_token').value;
                     options.headers = options.headers || new Headers()
                     if (!options.headers.has('Authorization')) {
-                        options.headers.set('Authorization', `Bearer ${token}`)
+                        options.headers.set('Authorization', `Bearer ${token}`);
                     }
                 }
             },
