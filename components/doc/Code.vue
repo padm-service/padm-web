@@ -29,12 +29,49 @@
             </header>
             <div class="p-2 text-[13px] font-[18px] overflow-x-auto sb-none rounded-b-md border">
                 <ContainerMarkdown
-                    :content="'curl --request GET \
-  --url https://api.platform.archivemodel.cn/services/service:09yb6hgxv9wvoe77ly9n/fetch/fruit_forecast/{task id}/status--header'">
+                    :content="formattedCode">
                 </ContainerMarkdown>
             </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useApiStore } from '@/stores/sidebardoc'
+
+const apiStore = useApiStore()
+
+const formatCurlCommand = (command: string) => {
+  if (!command) return ''
+  
+  return command
+    .replace(/--request\s+(\w+)/, '--request $1 \\\n  ')
+    .replace(/--url\s+([^\s]+)/, '--url $1 \\\n  ')
+    .replace(/--header\s+'([^']+)'/, "--header '$1'")
+    .trim()
+}
+
+const formattedCode = computed(() => {
+  const currentApi = apiStore.currentApi
+  
+  if (!currentApi?.path) {
+    return '# 请选择 API 接口查看代码示例'
+  }
+  
+  const method = currentApi.method || 'GET'
+  const path = currentApi.path
+  const baseUrl = 'https://api.platform.archivemodel.cn'
+  
+const rawCode = `curl --request ${method} --url ${baseUrl}${path} --header 'X-API-Key: Your API Key'`
+//    const rawCode=`const options = {
+//   method: "${method}",
+//   headers: {
+//     "X-API-Key": "Your API Key",
+//     "Content-Type": "application/json"
+//   },
+// };
+// fetch("${baseUrl}${path}", options);`
+  
+  return formatCurlCommand(rawCode)
+})
 </script>

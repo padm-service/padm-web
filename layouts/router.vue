@@ -3,7 +3,7 @@
         <Header />
         <div class="h-full flex overflow-y-hidden">
             <Menu :menuItems="menus">
-            </Menu>
+            </Menu> 
             <slot class="" />
         </div>
     </div>

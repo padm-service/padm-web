@@ -5,10 +5,13 @@
                 <Button variant="outline" size="icon" class="sm:hidden">
                     <Icon name="mdi:table-of-contents" class="w-7 h-7" />
                 </Button>
-            </SheetTrigger>
-            <SheetContent side="left" class="p-0 w-2/3">
+            </SheetTrigger> 
+            <SheetContent side="left" class="p-0 w-2/3 z-50 bg-background">
                 <div class="pt-14 flex flex-col gap-y-2">
-                    <div v-for="item in menuLoading" :key="item.id">
+                    <div v-if="route.path.includes('/doc')" class="flex-1 overflow-hidden"> 
+                        <SimpleMobileSidebar />
+                    </div>
+                    <div v-else v-for="item in menuLoading" :key="item.id">
                         <NuxtLink :to="item.path" class="contents">
                             <Button variant="ghost" class="text-lg w-full font-extrabold justify-start pl-12"
                                 :class="{ 'bg-[#E6F1FB] hover:bg-[#E6F1FB] dark:bg-[#1A2530] dark:text-blue-600 dark:hover:bg-[#1A2530] dark:hover:text-blue-600': isActive(item.path) }">
@@ -32,6 +35,8 @@
 <script setup>
 import { computed } from 'vue';
 import { menus, manage } from '@/utils/menus'
+//import { SheetContent } from '#build/components';
+import { SheetContent } from '@/components/ui/sheet'
 const route = useRoute();
 
 const menuLoading = computed(() => {
