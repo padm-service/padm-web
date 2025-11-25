@@ -15,7 +15,7 @@ export const messageStore = defineStore('msg', () => {
         } as Message);
         abortCtrl.value = new AbortController();
         option.messages = messageList.value.slice(0, -1);
-        fetchEventSource(baseUrl + `/assistants/${route.params.assId}/chats/${option.chatId}/query`, {
+        fetchEventSource(`/api/assistants/${route.params.assId}/chats/${option.chatId}/query`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json",
