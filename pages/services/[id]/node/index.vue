@@ -67,15 +67,15 @@ const route = useRoute();
 const Submit = async (values: NodeForm) => {
     try {
         pending.value = true;
-        await post(`/services/${route.params.id}/nodes`, { ...values, state: "运行中", serviceId: route.params.id });
+        await post(`/services/${route.params.id}/nodes `, { ...values, state: "运行中", serviceId: route.params.id });
         if (nodeCard.value) {
             nodeCard.value.getNode();
         }
         toast.success("添加成功！");
         openState.value = false;
         pending.value = false;
-    } catch (error: any) {
-        pending.value = false;
+    } catch (error: any) { 
+        pending.value = false; 
     }
 }
 const { onSubmit } = useCustomForm(zNodeForm, Submit)

@@ -35,7 +35,11 @@
                           @click="handleApiClick(child)"
                           >
                             <span>{{ child.title }}</span>
+                            <!-- <Badge class="rounded-md p-1 uppercase bg-green-950" variant="outline">
+                           {{ child?.method || 'GET' }}
+                           </Badge> -->
                           </a>
+                          
                         </SidebarMenuButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>

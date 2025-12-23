@@ -1,7 +1,5 @@
 <template>
-    <!-- <div class="flex-1">doc</div> -->
-     <div class="flex h-full">
-            <aside class="w-56 border-r border-gray-700 p-4 hidden sm:block">
+    <aside class="w-56 border-r border-gray-700 p-4 ">
                 <div v-for="item in itemData" class="transition-all duration-200">
                     <div class="flex items-center justify-between p-3 cursor-pointer transition-colors rounded"
                                @click="toggleItem(item.path)">
@@ -25,34 +23,10 @@
                                 <div class="flex-1">
                                         <div class="text-sm">{{ item.summary }}</div>
                                 </div>
-                                <Badge class="rounded-md p-1 uppercase bg-green-950" variant="outline">
-                           {{ item?.method || 'GET' }}
-                           </Badge>
                             </a>
-                            
                     </div>
                 </div>
             </aside>
-            <main class="flex-1 p-6 overflow-auto">
-                        <ScrollArea class="flex-1">
-        <div class="container container-2xl">
-            <div class="flex flex-col lg:flex-row gap-8 2xl:gap-16 items-stretch ">
-                <!-- <Button variant="outline" size="icon" class="sm:hidden">
-                     <Icon name="mdi:chevron-double-right" class="w-4 h-4 text-white" />
-                </Button> -->
-                <HeaderHiddenbtn></HeaderHiddenbtn>
-                <div class="flex flex-col gap-6 grow">
-                    <DocRequest></DocRequest>
-                    <DocResponse></DocResponse>
-                </div>
-                <div class="w-full lg:w-1/2 2xl:w-2/5 self-start sticky top-8">
-                     <DocServicecode v-show="serviceId" :serviceId="serviceId"></DocServicecode>
-                </div>
-            </div>
-        </div>
-    </ScrollArea>
-            </main>
-     </div>
 </template>
 <script setup lang="ts">
 import { useApiStore } from '@/stores/sidebardoc'

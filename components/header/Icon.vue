@@ -11,12 +11,12 @@
             </DropdownMenuLabel> -->
             <DropdownMenuSeparator />
             <DropdownMenuGroup class="font-bold justify-self-center">
-                <NuxtLink to="/setting" class="contents">
-                    <DropdownMenuItem class=" cursor-pointer justify-center">个人中心
-                    </DropdownMenuItem>
-                </NuxtLink>
                 <NuxtLink to="/services" class="contents">
                     <DropdownMenuItem class="cursor-pointer justify-center">控制台
+                    </DropdownMenuItem>
+                </NuxtLink>
+                <NuxtLink to="/setting" class="contents">
+                    <DropdownMenuItem class=" cursor-pointer justify-center">个人中心
                     </DropdownMenuItem>
                 </NuxtLink>
                 <DropdownMenuItem class="text-red-600  cursor-pointer justify-center " @click="logout">退出登录

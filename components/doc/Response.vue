@@ -6,7 +6,7 @@
                     <Badge v-for="param in currentApi.responses" :key="param?.statusCode" variant="outline" 
                     class="rounded-md px-2 py-1 text-xs border-gray-100" 
                     :class="{
-            'border-green-500 text-white': selectedStatusCode === param?.statusCode,
+            'border-green-500 text-blue': selectedStatusCode === param?.statusCode,
             'bg-gray-100 dark:bg-gray-800': selectedStatusCode !== param?.statusCode
           }"
                     @click="selectStatusCode(param?.statusCode)">

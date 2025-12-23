@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import type { Assistant, Chat, Key, Message, Service, FileUpload, PreSignedURL, Colletion, Partition, User } from '@/lib/type';
+import type { Assistant, Chat, Key, Message, Service, FileUpload, PreSignedURL, Colletion, Partition, User,Bill } from '@/lib/type';
 const { get, del, post, put } = useApi();
 const schema = {
     openapi: "3.0.3",
@@ -11,19 +11,19 @@ const schema = {
 //user
 export const useUsers = () => {
 
-    const updateUser = async (object: Object) => {
-        return await put('/user', object) as User;
+    const updateUser = async (updates: Object) => {
+        return await put('/user', updates) as User;
     };
     const getUsers = async () => {
         return await get(`/users`) as User[];
     };
-    const updateUsers = async (object: Object) => {
-        return await put('/users', object) as User[];
-    };
+    // const updateUsers = async (object: Object) => {
+    //     return await put('/users', object) as User[];
+    // };
     const delUsers = async (id: string) => {
         return await del(`/users/${id}`) as User[];
     };
-    return { updateUser, getUsers, updateUsers, delUsers };
+    return { updateUser, getUsers, delUsers };
 }
 //key
 export const useKeys = () => {
@@ -148,4 +148,13 @@ export const usePartitions = () => {
         await post(`/collections/${collectionId}/partitions/batch`, object);
     };
     return { createPartition, getPartitions, getPartition, updatePartition, deletePartition, updateBatchPartition, deleteBatchPartition }
+}
+//bills
+export const usebills = () => {
+    const billList = ref<Bill[]>([]);
+    const getBill = async () => {
+        billList.value = await get('/bills') as Bill[];
+    };
+
+    return { billList, getBill}
 }

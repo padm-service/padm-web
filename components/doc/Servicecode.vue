@@ -44,6 +44,9 @@ import { useApiStore } from '@/stores/sidebardoc'
 import hljs from 'highlight.js/lib/core'
 import javascript from 'highlight.js/lib/languages/javascript'
 import bash from 'highlight.js/lib/languages/bash'
+const props = defineProps<{
+  serviceId: string
+}>()
 hljs.registerLanguage('bash', bash)
 const apiStore = useApiStore()
 const selectedLanguage = ref('javascript') 
@@ -55,8 +58,8 @@ const formattedCode = computed(() => {
   }
   
   const method = currentApi.method || 'GET'
-  const path = currentApi.path
-  const baseUrl = 'https://api.platform.archivemodel.cn'
+  const path = props.serviceId
+  const baseUrl = 'https://api.platform.archivemodel.cn/services/service:'
 
   //if(method=='POST'||'PUT'){
           const bodyInline =  parseRequestBodyInlineObject(currentApi?.requestBody);

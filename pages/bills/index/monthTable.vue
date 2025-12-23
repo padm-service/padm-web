@@ -4,12 +4,18 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>
-                        知识库名称
+                        账单id
                     </TableHead>
-                    <TableHead>使用空间</TableHead>
-                    <TableHead>创建时间</TableHead>
+                    <TableHead>账期</TableHead>
+                    <TableHead>模型名称</TableHead>
                     <TableHead>
-                        更新时间
+                        key
+                    </TableHead>
+                    <TableHead>
+                        消费金额
+                    </TableHead>
+                    <TableHead>
+                        余额
                     </TableHead>
                     <TableHead>
                         操作
@@ -17,14 +23,17 @@
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow class="cursor-pointer " v-for="invoice in invoices" :key="invoice.invoice">
+                <TableRow v-if="billList.length <=0"><p class="text-center">Empty</p></TableRow>
+                <TableRow class="cursor-pointer " v-else v-for="bill in billList" :key="bill.id">
                     <TableCell class="font-bold">
-                        📚{{ invoice.invoice }}
+                        📚{{ bill.id }}
                     </TableCell>
-                    <TableCell>{{ invoice.paymentStatus }}</TableCell>
-                    <TableCell>{{ invoice.paymentMethod }}</TableCell>
+                    <TableCell>{{ bill.updated_at }}</TableCell>
+                    <TableCell>{{ bill.modelName }}</TableCell>
+                    <TableCell>{{ bill.keyId }}</TableCell>
+                    <TableCell>{{ bill.consumptionAmount }}</TableCell>
                     <TableCell>
-                        {{ invoice.totalAmount }}
+                        {{ bill.balance }}
                     </TableCell>
                     <TableCell>
                         <HoverCard>
@@ -51,12 +60,20 @@
 </template>
 
 <script lang="ts" setup>
-const invoices = [
-    {
-        invoice: 'INV001',
-        paymentStatus: 'Paid',
-        totalAmount: '$250.00',
-        paymentMethod: 'Credit Card',
-    }
-]
+// const invoices = [
+//     {
+//         invoice: 'INV001',
+//         paymentStatus: 'Paid',
+//         totalAmount: '$250.00',
+//         paymentMethod: 'Credit Card',
+//     }
+// ]
+import { onMounted } from 'vue';
+
+const { billList, getBill } = usebills();
+
+onMounted(() => {
+  getBill();
+  console.log(billList);
+});
 </script>

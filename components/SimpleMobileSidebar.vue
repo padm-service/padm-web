@@ -19,7 +19,11 @@
             <a v-for="child in item.children" 
                :key="getChildKey(child)"
                href="javascript:void(0)"
-               class="flex items-center p-2 px-4 transition-colors hover: text-lg dark:text-gray-300 dark:hover:text-blue-600 hover:font-bold"
+               class="flex items-center p-2 px-4 transition-colors hover:text-lg"
+               :class="{
+                                              'dark:text-blue-600 font-bold': activeItem === child.title,
+                                              'dark:text-white': activeItem !== child.title
+                                            }"
                @click="handleApiClick(child)">
               <div class="flex-1">
                 <div class="text-sm">{{ child.title }}</div>
@@ -58,10 +62,11 @@ const toggleItem = (title) => {
     openItems[title] = !openItems[title]
   }
 }
-
+const activeItem = ref(null)
 // 处理 API 点击
 const handleApiClick = (child) => {
   // 更新 Pinia store 中的当前API
+  activeItem.value = child.title
   apiStore.setCurrentApi(child)
   console.log('点击 API:', child)
 }
