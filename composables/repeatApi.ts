@@ -14,16 +14,19 @@ export const useUsers = () => {
     const updateUser = async (updates: Object) => {
         return await put('/user', updates) as User;
     };
+    const getUser = async () => {
+        return await get('/user') as User;
+    };
     const getUsers = async () => {
         return await get(`/users`) as User[];
     };
-    // const updateUsers = async (object: Object) => {
-    //     return await put('/users', object) as User[];
-    // };
+    const updateUsers = async (object: Object) => {
+        return await put('/users', object) as User[];
+    };
     const delUsers = async (id: string) => {
         return await del(`/users/${id}`) as User[];
     };
-    return { updateUser, getUsers, delUsers };
+    return { updateUser, getUsers, getUser,updateUsers,delUsers };
 }
 //key
 export const useKeys = () => {
@@ -152,8 +155,8 @@ export const usePartitions = () => {
 //bills
 export const usebills = () => {
     const billList = ref<Bill[]>([]);
-    const getBill = async () => {
-        billList.value = await get('/bills') as Bill[];
+    const getBill = async (userId: string) => {
+        billList.value = await get(`/bill/user/${userId}`) as Bill[];
     };
 
     return { billList, getBill}

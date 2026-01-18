@@ -21,13 +21,14 @@
 import { useRoute } from "vue-router";
 const { apiDoc, apiDocList } = storeToRefs(apiDocStore());
 const props = defineProps({
-    menuItems: Array,
+    menuItems:Array,
 });
 onMounted(() => {  
     // const { groups } = apiDoc.value;
     // console.log(apiDoc.value);
-})
+ })
 const route = useRoute();
+
 
 const isActive = (path) => route.path.startsWith(path);
 

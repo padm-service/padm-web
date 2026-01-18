@@ -71,9 +71,14 @@
 import { onMounted } from 'vue';
 
 const { billList, getBill } = usebills();
-
+const { getUser } = useUsers();
+const authStore = userAuthStore();
+const { user } = storeToRefs(authStore);
+console.log('当前的用户是',user)
+console.log('当前用户的id',user.value?.id)
 onMounted(() => {
-  getBill();
+  const userId=user.value?.id as string;
+  getBill(userId);
   console.log(billList);
 });
 </script>

@@ -58,8 +58,9 @@ const formattedCode = computed(() => {
   }
   
   const method = currentApi.method || 'GET'
-  const path = props.serviceId
-  const baseUrl = 'https://api.platform.archivemodel.cn/services/service:'
+  const serviceid = props.serviceId
+  const path=currentApi.path
+  const baseUrl = 'https://api.platform.archivemodel.cn/services/'
 
   //if(method=='POST'||'PUT'){
           const bodyInline =  parseRequestBodyInlineObject(currentApi?.requestBody);
@@ -102,7 +103,7 @@ const formattedCode = computed(() => {
 }
   
   if (selectedLanguage.value === 'curl'){
-    const rawCode = `curl --request ${method} --url ${baseUrl}${path} --header 'X-API-Key: Your API Key' --data '${bodyInline}'`
+    const rawCode = `curl --request ${method} --url ${baseUrl}${serviceid}/fetch${path} --header 'X-API-Key: Your API Key' --data '${bodyInline}'`
     return formatCurlCommand(rawCode)
   }else{
      const rawCode=`const options = {
@@ -113,7 +114,7 @@ const formattedCode = computed(() => {
    },
    body: ${bodyInline}
  };
- fetch("${baseUrl}${path}", options);`
+ fetch("${baseUrl}${serviceid}/fetch${path}", options);`
  return formatCode(rawCode)
   } 
 function formatCode(code) {

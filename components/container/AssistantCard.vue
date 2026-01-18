@@ -9,7 +9,8 @@
                 </h3>
                 <p class="pt-2 text-sm">{{ assistant.description }}</p>
                 <div class="flex gap-2 flex-wrap pt-2 text-xl">
-                    <NuxtLink :to="`/assistants/${assistant.id}/setting`">
+                    <NuxtLink v-if="user?.scope === 'admin' || user?.scope === 'superadmin'"
+                    :to="`/assistants/${assistant.id}/setting`">
                         <Button variant="outline">
                             <Icon name="weui:setting-outlined" class="w-5 h-5"></Icon>
                             <span>设置</span>
@@ -28,4 +29,6 @@
 </template>
 <script setup lang="ts">
 const { assistantList } = storeToRefs(assistantStore());
+const authStore = userAuthStore();
+const { user } = storeToRefs(authStore);
 </script>
