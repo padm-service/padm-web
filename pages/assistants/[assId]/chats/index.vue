@@ -3,7 +3,7 @@
         <div class="container container-lg pb-4 overflow-hidden">
             <ContainerHeader title="与 数字农艺专家 - 小橘 的历史对话"></ContainerHeader>
             <div class="flex justify-end ">
-                <NuxtLink to="`/assistants/${route.params.assId}/chats/new`">
+                <NuxtLink :to="`/assistants/${route.params.assId}/chats/new`">
                     <Button class="dark:bg-blue-600 bg-blue-500 text-white dark:hover:bg-blue-500  hover:bg-blue-600">
                         + 新建 
                     </Button>

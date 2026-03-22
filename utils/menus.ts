@@ -9,14 +9,14 @@ export const menus: MenuItem[] = [
         roles: ["admin", "user"],
         path: "/services",
     },
-    {
-        id: "assistants",
-        name: "数字专家",
-        icon: "🧑‍🔬",
-        group: "console",
-        roles: ["admin"],
-        path: "/assistants",
-    },
+    // {
+    //     id: "assistants",
+    //     name: "数字专家",
+    //     icon: "🧑‍🔬",
+    //     group: "console",
+    //     roles: ["admin"],
+    //     path: "/assistants",
+    // },
     {
         id: "knowledgeBase",
         name: "知识库",

@@ -29,6 +29,9 @@ if(to.path.includes('/users') && user.value?.scope==='user'){
 if(to.path.includes('/monitor') && user.value?.scope==='user'){
   return navigateTo('/setting');
 }
+if(to.path.includes('/assistants') && user.value?.scope==='user'){
+  return navigateTo('/services');
+}
 });
 
 // if (token && ['/iam/login', '/iam/register'].includes(to.path)) {

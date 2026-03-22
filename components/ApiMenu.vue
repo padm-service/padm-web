@@ -23,6 +23,7 @@ const { apiDoc, apiDocList } = storeToRefs(apiDocStore());
 const props = defineProps({
     menuItems:Array,
 });
+console.log('菜单',props.menuItems);
 onMounted(() => {  
     // const { groups } = apiDoc.value;
     // console.log(apiDoc.value);

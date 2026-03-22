@@ -44,8 +44,20 @@ const computedMenuItems = computed(() => {
       }
     );
   }
-
+  if (user.value?.scope === 'admin' && items[0].id==='services') {
+    items.push(
+        {
+        id: "assistants",
+        name: "数字专家",
+        icon: "🧑‍🔬",
+        group: "console",
+        roles: ["admin"],
+        path: "/assistants",
+      }
+    );
+  }
   return items;
+
 });
 const route = useRoute();
 

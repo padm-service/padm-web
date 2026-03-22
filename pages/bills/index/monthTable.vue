@@ -6,6 +6,7 @@
                     <TableHead>
                         账单id
                     </TableHead>
+                    <TableHead>用户id</TableHead>
                     <TableHead>账期</TableHead>
                     <TableHead>模型名称</TableHead>
                     <TableHead>
@@ -17,9 +18,9 @@
                     <TableHead>
                         余额
                     </TableHead>
-                    <TableHead>
+                    <!-- <TableHead>
                         操作
-                    </TableHead>
+                    </TableHead> -->
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -28,6 +29,7 @@
                     <TableCell class="font-bold">
                         📚{{ bill.id }}
                     </TableCell>
+                    <TableCell>{{ bill.userId }}</TableCell>
                     <TableCell>{{ bill.updated_at }}</TableCell>
                     <TableCell>{{ bill.modelName }}</TableCell>
                     <TableCell>{{ bill.keyId }}</TableCell>
@@ -35,7 +37,7 @@
                     <TableCell>
                         {{ bill.balance }}
                     </TableCell>
-                    <TableCell>
+                    <!-- <TableCell>
                         <HoverCard>
                             <HoverCardTrigger as-child>
                                 <Button @click.stop.prevent size="icon" variant="ghost">
@@ -52,7 +54,7 @@
                                 </Button>
                             </HoverCardContent>
                         </HoverCard>
-                    </TableCell>
+                    </TableCell> -->
                 </TableRow>
             </TableBody>
         </Table>
