@@ -5,7 +5,7 @@
             <span class="text-4xl md:text-3xl  flex"> {{ service?.icon }}</span>
             <div>
                 <h3>
-                    <NuxtLink :to="`/services/${service.id}/setting`"
+                    <NuxtLink :to="`/services/${service.id}/doc`"
                         class="font-extrabold text-md  hover:text-blue-500">
                         {{ service.schema?.info?.title }}
                     </NuxtLink>

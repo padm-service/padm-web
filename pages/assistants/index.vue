@@ -6,7 +6,7 @@
                 <div class="flex pt-4 gap-4">
                     <Dialog v-model:open="openState">
                         <DialogTrigger as-child>
-                            <Button class="bg-blue-500 text-white hover:bg-blue-700 ">
+                            <Button v-if="user && ['admin', 'superadmin'].includes(user.scope)" class="bg-blue-500 text-white hover:bg-blue-700 ">
                                 + 新建
                             </Button>
                         </DialogTrigger>
@@ -86,6 +86,7 @@ const Submit = async (values: AssistantForm) => {
         pending.value = false;
     }
 }
-const { onSubmit } = useCustomForm(zAssistantForm, Submit)
-
+const { onSubmit } = useCustomForm(zAssistantForm, Submit);
+const authStore = userAuthStore();
+const { user } = storeToRefs(authStore);
 </script>

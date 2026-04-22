@@ -31,13 +31,25 @@
 const router = useRoute();
 const { getService } = useServices();
 const { service } = storeToRefs(serviceStore());
+const authStore = userAuthStore();
+const { user } = storeToRefs(authStore);
 definePageMeta({
     layout: 'router'
 });
-const links = [{ id: "doc", name: "文档" },
-{ id: "setting", name: "设置" },
-{ id: "node", name: "节点" }
-];
+const links=[{ id: "doc", name: "文档" }];
+if(user.value?.scope==='admin'||user.value?.scope==='superadmin'){
+    links.push(
+    { id: "setting", name: "设置" },
+    { id: "node", name: "节点" }
+  );
+// const links = [{ id: "doc", name: "文档" },
+// { id: "setting", name: "设置" },
+// { id: "node", name: "节点" }
+// ];
+}
+
+
+
 onMounted(async () => {
     service.value = await getService(router.params.id as string);
 })

@@ -43,6 +43,9 @@ const route = useRoute();
 onMounted(async () => {
     service.value = await getService(route.params.id as string);
     loading.value = true;
+    const paths = service.value.schema.paths;
+    console.log(paths);
 });
+
 
 </script>

@@ -36,6 +36,12 @@ export type Key = Base & {
     purpose: string,
     services: Array<string>,
 };
+export type Bill = Base & {
+    modelName: string,
+    consumptionAmount:number,
+    balance: number,
+    keyId:string,
+};
 export type Service = Base & {
     readme: string,
     level: number,

@@ -44,12 +44,13 @@ const name = ref();
 onMounted(() => {
     name.value = user.value?.name as string;
 })
+console.log(name);
 const handleSubmit = async () => {
     if (name.value === user.value?.name) {
         obvious.value = false;
         return;
     }
-    user.value = await updateUser({ name });
+    user.value = await updateUser({ updates: { name} });
     name.value = user.value?.name;
     toast.success("修改成功");
     obvious.value = false;

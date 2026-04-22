@@ -98,4 +98,5 @@ const Submit = async (values: KeyForm) => {
     }
 }
 const { onSubmit } = useCustomForm(zKeyForm, Submit)
+console.log('要复制的值为',oneTime)
 </script>

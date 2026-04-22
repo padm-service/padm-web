@@ -61,7 +61,8 @@ const send = async () => {
             }
         })
     }
-    const option = { messages: [{ role: "user", content: thisRound }], knowledge: { collection: assistant.value?.knowledge[0], partition: [] }, llm: assistant.value?.llm, service: assistant.value?.services, retrieval: retrieval.value, chatId: chat.value.id };
+    // const option = { messages: [{ role: "user", content: thisRound }], knowledge: { collection: assistant.value?.knowledge[0], partition: [] }, llm: assistant.value?.llm, service: assistant.value?.services, retrieval: retrieval.value, chatId: chat.value.id };
+    const option = { messages: [{ role: "user", content: thisRound }], knowledge: { collection: assistant.value?.knowledge[0], partition: [] }, llm: assistant.value?.llm, service: assistant.value?.services, options: {retrieval : retrieval.value}};
     messageStore().sendMessage(option);
     inputText.value = "";
     fileUploadList.value = [];
